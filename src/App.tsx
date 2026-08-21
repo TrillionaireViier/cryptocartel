@@ -494,6 +494,33 @@ function App() {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
           }
+          
+          /* Content Pages */
+          .content-article h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+          }
+          
+          .content-article h3:first-child {
+            margin-top: 0;
+          }
+          
+          .content-article p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+          }
+          
+          .content-article ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+          }
+          
+          .content-article li {
+            margin-bottom: 0.5rem;
+          }
 
           /* Responsive */
           @media (max-width: 992px) {
