@@ -176,10 +176,10 @@ function App() {
       <section className="hero">
         <div className="container hero-content">
           <h1 className="heading-xl text-gradient animate-fade">
-            Intelligence in Capital.
+            Botforge Platform
           </h1>
           <p className="text-secondary hero-desc animate-fade delay-1">
-            The most advanced quantitative trading models and data synthesis engines, accessible in a clean, minimalist interface. Built for modern investors.
+            Performance analytics, automated trading bots, and comprehensive platform ledgers for modern operators.
           </p>
           
           <div className="animate-fade delay-2" style={{ display: 'flex', gap: '1rem' }}>
@@ -201,23 +201,23 @@ function App() {
           <div className="grid-3">
             <div className="el-card feature-box">
               <div className="icon-wrapper"><Activity size={20} /></div>
-              <h3>Real-time Analytics</h3>
+              <h3>Trade History Logs</h3>
               <p className="text-secondary" style={{ fontSize: '0.95rem' }}>
-                Stream market data with sub-millisecond latency. Our models process millions of data points instantly.
+                Complete log of all bot and manual trades executed across the platform.
               </p>
             </div>
             <div className="el-card feature-box">
               <div className="icon-wrapper"><AudioWaveform size={20} /></div>
-              <h3>Predictive Modeling</h3>
+              <h3>Revenue Tracking</h3>
               <p className="text-secondary" style={{ fontSize: '0.95rem' }}>
-                Leverage generative AI to simulate market conditions and stress-test your portfolios before execution.
+                Revenue, MRR, subscriptions, and affiliate payout ledgers.
               </p>
             </div>
             <div className="el-card feature-box">
               <div className="icon-wrapper"><Shield size={20} /></div>
-              <h3>Enterprise Security</h3>
+              <h3>Custom Exports</h3>
               <p className="text-secondary" style={{ fontSize: '0.95rem' }}>
-                Bank-grade encryption and SOC2 compliance out of the box. Your algorithmic IP is always protected.
+                Export all active, suspended, and deleted user accounts with profile data.
               </p>
             </div>
           </div>
