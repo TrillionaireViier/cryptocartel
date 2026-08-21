@@ -161,7 +161,7 @@ function App() {
       {/* Navigation */}
       <nav className="navbar">
         <div className="container nav-content">
-          <a href="#" className="logo">Alvaro Capital</a>
+          <a href="#" className="logo">Cryptocartel</a>
           <div className="nav-links">
             <a href="#" className="nav-link">Products</a>
             <a href="#" className="nav-link">Resources</a>
