@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Bot } from 'lucide-react';
 import Home from './pages/Home';
 import PlaceholderPage from './pages/PlaceholderPage';
@@ -6,9 +6,12 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 
-function App() {
+function MainLayout() {
+  const location = useLocation();
+  const isDashboard = location.pathname === '/app';
+
   return (
-    <BrowserRouter>
+    <>
       <style>
         {`
           :root {
@@ -543,36 +546,37 @@ function App() {
         `}
       </style>
 
-      {/* Navigation */}
       <nav className="navbar">
         <div className="container nav-content">
           <Link to="/" className="logo">
             <Bot size={24} className="text-primary logo-spin" /> CryptoCartel
           </Link>
-          <div className="nav-links">
-            <a href="/#features" className="nav-link">Функции</a>
-            <a href="/#how-it-works" className="nav-link">Как это работает</a>
-            <a href="/#pricing" className="nav-link">Тарифы</a>
-          </div>
-          <div className="mobile-auth" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <Link to="/login" className="nav-link" style={{ fontSize: '0.85rem' }}>Войти</Link>
-            <Link to="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Создать Бота</Link>
-          </div>
+          {!isDashboard && (
+            <>
+              <div className="nav-links">
+                <a href="/#features" className="nav-link">Функции</a>
+                <a href="/#how-it-works" className="nav-link">Как это работает</a>
+                <a href="/#pricing" className="nav-link">Тарифы</a>
+              </div>
+              <div className="mobile-auth" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <Link to="/login" className="nav-link" style={{ fontSize: '0.85rem' }}>Войти</Link>
+                <Link to="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Создать Бота</Link>
+              </div>
+            </>
+          )}
         </div>
       </nav>
 
-      {/* Main Content Area */}
       <div style={{ paddingTop: '6rem' }}>
         <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/app" element={<Dashboard />} />
-              <Route path="/:pageId" element={<PlaceholderPage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/app" element={<Dashboard />} />
+          <Route path="/:pageId" element={<PlaceholderPage />} />
         </Routes>
       </div>
 
-      {/* Footer */}
       <footer className="footer">
         <div className="container">
           <div className="footer-grid">
@@ -625,6 +629,14 @@ function App() {
           </div>
         </div>
       </footer>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <MainLayout />
     </BrowserRouter>
   );
 }
