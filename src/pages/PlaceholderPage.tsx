@@ -130,6 +130,61 @@ const pageContent: Record<string, any> = {
         </div>
       </>
     )
+  },
+  'blog': {
+    title: 'Блог BotForgee',
+    icon: <BookOpen size={40} className="text-primary" />,
+    description: 'Новости рынка, аналитика и разборы торговых стратегий.',
+    content: (
+      <>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1rem' }}>
+          <div className="el-card" style={{ padding: '2rem' }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Рынки • 21 Августа 2026</span>
+            <h3 style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>Как торговать в боковике с помощью Grid-ботов?</h3>
+            <p style={{ margin: 0 }}>Разбираем математику сеточного трейдинга и показываем, почему флэт — лучшее время для запуска GridMaster. Узнайте, как правильно рассчитать ширину канала и шаг сетки.</p>
+          </div>
+          <div className="el-card" style={{ padding: '2rem' }}>
+            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Аналитика • 15 Августа 2026</span>
+            <h3 style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>Риск-менеджмент: Трейлинг стопы против фиксированных</h3>
+            <p style={{ margin: 0 }}>Сравнительное тестирование на исторических данных ETH/USDT за 2025 год. Как динамический стоп-лосс спасает депозит на проливах.</p>
+          </div>
+        </div>
+      </>
+    )
+  },
+  'guides': {
+    title: 'Обучающие Гайды',
+    icon: <FileText size={40} className="text-primary" />,
+    description: 'Пошаговые инструкции по настройке и запуску алгоритмов.',
+    content: (
+      <>
+        <h3>Базовый уровень</h3>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          <li style={{ padding: '1rem', border: '1px solid var(--border-light)', borderRadius: '8px', marginBottom: '0.5rem', background: 'var(--bg-card-hover)' }}>🔥 Как подключить Binance API за 3 минуты</li>
+          <li style={{ padding: '1rem', border: '1px solid var(--border-light)', borderRadius: '8px', marginBottom: '0.5rem', background: 'var(--bg-card-hover)' }}>🚀 Запуск вашего первого DCA-бота</li>
+        </ul>
+        
+        <h3>Продвинутый уровень</h3>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          <li style={{ padding: '1rem', border: '1px solid var(--border-light)', borderRadius: '8px', marginBottom: '0.5rem', background: 'var(--bg-card-hover)' }}>🧠 Настройка RSI + MACD фильтров</li>
+          <li style={{ padding: '1rem', border: '1px solid var(--border-light)', borderRadius: '8px', marginBottom: '0.5rem', background: 'var(--bg-card-hover)' }}>⚙️ Использование логарифмического мартингейла</li>
+        </ul>
+      </>
+    )
+  },
+  'cookies': {
+    title: 'Политика Cookies',
+    icon: <Shield size={40} className="text-primary" />,
+    description: 'Информация об использовании файлов cookie на нашей платформе.',
+    content: (
+      <>
+        <h3>Строго необходимые Cookies</h3>
+        <p>Эти файлы необходимы для функционирования платформы. Они включают в себя токены авторизации (JWT) и настройки темы. Их нельзя отключить, так как без них вы не сможете войти в свой аккаунт.</p>
+        
+        <h3>Аналитические Cookies</h3>
+        <p>Мы используем анонимизированную аналитику для понимания того, как пользователи взаимодействуют с конфигуратором ботов. Это помогает нам делать интерфейс удобнее.</p>
+      </>
+    )
   }
 };
 
