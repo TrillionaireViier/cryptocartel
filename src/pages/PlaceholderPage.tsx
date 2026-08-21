@@ -185,6 +185,56 @@ const pageContent: Record<string, any> = {
         <p>Мы используем анонимизированную аналитику для понимания того, как пользователи взаимодействуют с конфигуратором ботов. Это помогает нам делать интерфейс удобнее.</p>
       </>
     )
+  },
+  'login': {
+    title: 'Вход в аккаунт',
+    icon: <Shield size={40} className="text-primary" />,
+    description: 'С возвращением! Войдите для управления вашими ботами.',
+    content: (
+      <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Email</label>
+            <input type="email" placeholder="name@example.com" style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '8px', background: 'var(--bg-base)', border: '1px solid var(--border-strong)', color: 'white', outline: 'none' }} />
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Пароль</label>
+            <input type="password" placeholder="••••••••" style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '8px', background: 'var(--bg-base)', border: '1px solid var(--border-strong)', color: 'white', outline: 'none' }} />
+          </div>
+          <button className="btn btn-primary" style={{ width: '100%', padding: '1rem', marginTop: '1rem' }}>Войти</button>
+        </div>
+        <p style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+          Нет аккаунта? <Link to="/signup" style={{ color: 'var(--primary-color)', textDecoration: 'none' }}>Создать сейчас</Link>
+        </p>
+      </div>
+    )
+  },
+  'signup': {
+    title: 'Регистрация',
+    icon: <Zap size={40} className="text-primary" />,
+    description: 'Начните автоматизировать свою прибыль уже сегодня.',
+    content: (
+      <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Имя</label>
+            <input type="text" placeholder="Джон Доу" style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '8px', background: 'var(--bg-base)', border: '1px solid var(--border-strong)', color: 'white', outline: 'none' }} />
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Email</label>
+            <input type="email" placeholder="name@example.com" style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '8px', background: 'var(--bg-base)', border: '1px solid var(--border-strong)', color: 'white', outline: 'none' }} />
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Пароль</label>
+            <input type="password" placeholder="Минимум 8 символов" style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: '8px', background: 'var(--bg-base)', border: '1px solid var(--border-strong)', color: 'white', outline: 'none' }} />
+          </div>
+          <button className="btn btn-accent" style={{ width: '100%', padding: '1rem', marginTop: '1rem' }}>Зарегистрироваться</button>
+        </div>
+        <p style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+          Уже есть аккаунт? <Link to="/login" style={{ color: 'var(--primary-color)', textDecoration: 'none' }}>Войти</Link>
+        </p>
+      </div>
+    )
   }
 };
 
