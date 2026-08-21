@@ -519,9 +519,9 @@ function App() {
             <Bot size={24} className="text-primary" /> BotForgee
           </Link>
           <div className="nav-links">
-            <Link to="/features" className="nav-link">Функции</Link>
-            <Link to="/#how-it-works" className="nav-link">Как это работает</Link>
-            <Link to="/pricing" className="nav-link">Тарифы</Link>
+            <a href="/#features" className="nav-link">Функции</a>
+            <a href="/#how-it-works" className="nav-link">Как это работает</a>
+            <a href="/#pricing" className="nav-link">Тарифы</a>
             <Link to="/login" className="nav-link">Войти</Link>
             <Link to="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Создать Бота</Link>
           </div>
@@ -552,8 +552,8 @@ function App() {
             <div className="footer-col">
               <h4>Продукт</h4>
               <ul className="footer-links">
-                <li><Link to="/features">Функции</Link></li>
-                <li><Link to="/pricing">Тарифы</Link></li>
+                <li><a href="/#features">Функции</a></li>
+                <li><a href="/#pricing">Тарифы</a></li>
                 <li><Link to="/marketplace">Маркетплейс</Link></li>
                 <li><Link to="/updates">Обновления</Link></li>
               </ul>
