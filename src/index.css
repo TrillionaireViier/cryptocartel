@@ -46,13 +46,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Typography Classes */
 .heading-xl {
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2rem, 8vw, 5rem);
   font-weight: 600;
+  word-wrap: break-word;
+  line-height: 1.2;
 }
 
 .heading-lg {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.75rem, 6vw, 3rem);
   font-weight: 500;
+  word-wrap: break-word;
+  line-height: 1.2;
 }
 
 .text-gradient {

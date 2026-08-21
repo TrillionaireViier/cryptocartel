@@ -535,6 +535,7 @@ function App() {
           @media (max-width: 768px) {
             .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+            .mobile-auth { display: flex !important; gap: 0.5rem; }
             .hero { padding-top: 8rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
@@ -552,7 +553,9 @@ function App() {
             <a href="/#features" className="nav-link">Функции</a>
             <a href="/#how-it-works" className="nav-link">Как это работает</a>
             <a href="/#pricing" className="nav-link">Тарифы</a>
-            <Link to="/login" className="nav-link">Войти</Link>
+          </div>
+          <div className="mobile-auth" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <Link to="/login" className="nav-link" style={{ fontSize: '0.85rem' }}>Войти</Link>
             <Link to="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Создать Бота</Link>
           </div>
         </div>
