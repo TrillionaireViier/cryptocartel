@@ -191,29 +191,7 @@ function App() {
             </a>
           </div>
 
-          {/* Playground Interface */}
-          <div className="el-card playground animate-fade delay-2">
-            <div className="pg-header">
-              <div className="pg-title"><AudioWaveform size={16} /> Strategy Synthesis Model</div>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>V2 Alpha</span>
-              </div>
-            </div>
-            
-            <textarea 
-              className="pg-input" 
-              rows={3}
-              placeholder="Describe your market hypothesis or risk parameters..."
-              defaultValue="Optimize portfolio allocation for Q4 with a strong emphasis on tech sector resilience and macro downside protection."
-            ></textarea>
 
-            <div className="pg-footer">
-              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Tokens: 24 / 10000</span>
-              <button className="btn btn-primary" style={{ padding: '0.5rem 1.5rem' }}>
-                <Play size={14} fill="currentColor" /> Generate Strategy
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
