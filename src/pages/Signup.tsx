@@ -28,8 +28,8 @@ export default function Signup() {
         throw new Error(data.error || 'Помилка реєстрації');
       }
 
-      localStorage.setItem('botforgee_token', data.token);
-      localStorage.setItem('botforgee_user', JSON.stringify(data.user));
+      localStorage.setItem('cryptocartel_token', data.token);
+      localStorage.setItem('cryptocartel_user', JSON.stringify(data.user));
       navigate('/app');
     } catch (err: any) {
       setError(err.message);

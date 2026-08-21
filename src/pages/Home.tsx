@@ -316,7 +316,7 @@ export default function Home() {
           
           <div className="faq-list">
             <div className="faq-item">
-              <span>Что такое BotForgee?</span>
+              <span>Что такое CryptoCartel?</span>
               <ChevronRight size={20} className="text-secondary" />
             </div>
             <div className="faq-item">
