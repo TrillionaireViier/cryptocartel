@@ -1,4 +1,4 @@
-import { ArrowRight, Play, AudioWaveform, Shield, Activity } from 'lucide-react';
+import { ArrowRight, AudioWaveform, Shield, Activity } from 'lucide-react';
 
 function App() {
   return (
