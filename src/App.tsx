@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Bot } from 'lucide-react';
 import Home from './pages/Home';
 import PlaceholderPage from './pages/PlaceholderPage';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -558,8 +561,11 @@ function App() {
       {/* Main Content Area */}
       <div style={{ paddingTop: '6rem' }}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<PlaceholderPage />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/app" element={<Dashboard />} />
+              <Route path="/:pageId" element={<PlaceholderPage />} />
         </Routes>
       </div>
 
