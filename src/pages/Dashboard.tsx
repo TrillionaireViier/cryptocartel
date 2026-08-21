@@ -57,7 +57,7 @@ export default function Dashboard() {
     <div style={{ minHeight: '80vh', padding: '2rem 1rem' }}>
       <div className="container">
         
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
+        <div className="mobile-col" style={{ marginBottom: '3rem' }}>
           <h1 className="heading-md" style={{ margin: 0 }}>Панель Управления</h1>
           <button onClick={handleLogout} className="btn btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>
             <LogOut size={16} /> Выйти
@@ -95,7 +95,7 @@ export default function Dashboard() {
         <h2 className="heading-md" style={{ marginBottom: '1.5rem' }}>Ваши Боты</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           {stats?.bots?.map((bot: any) => (
-            <div key={bot.id} className="el-card" style={{ padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div key={bot.id} className="el-card mobile-col" style={{ padding: '1.5rem 2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'var(--bg-base)', border: '1px solid var(--border-strong)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Activity size={20} className={bot.status === 'active' ? 'text-primary' : 'text-secondary'} />

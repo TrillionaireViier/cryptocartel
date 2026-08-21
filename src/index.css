@@ -81,6 +81,49 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+/* Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Mobile responsive utils */
+.mobile-col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .mobile-col {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .mobile-col > div:last-child {
+    text-align: left !important;
+  }
+}
+
 /* Glass & Cards */
 .el-card {
   background: var(--bg-card);
