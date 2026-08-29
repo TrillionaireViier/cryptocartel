@@ -2,6 +2,7 @@ import { ArrowRight, Activity, AudioWaveform, Zap, TrendingUp, BarChart2, Check,
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
+import Hero3D from '../components/Hero3D';
 
 const TiltCard = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
   <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} scale={1.02} transitionSpeed={2000} glareEnable={true} glareMaxOpacity={0.15} glareColor="white" glarePosition="all" style={{ height: '100%' }}>
@@ -29,8 +30,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.6 }}>
-        </div>
+        <Hero3D />
         <div className="container hero-content" style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>
           <span className="badge animate-fade" style={{ pointerEvents: 'auto', background: 'rgba(59, 130, 246, 0.2)', backdropFilter: 'blur(10px)' }}>Ультимативный No-Code Конфигуратор</span>
           <h1 className="heading-xl text-gradient animate-fade delay-1" style={{ pointerEvents: 'auto', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
