@@ -30,13 +30,6 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.6 }}>
-          <iframe 
-            src="https://my.spline.design/glassshapes-2f170fdd3c834a36f6cb3fbb450e1dc9/" 
-            frameBorder="0" 
-            width="100%" 
-            height="100%" 
-            style={{ pointerEvents: 'none' }}
-          ></iframe>
         </div>
         <div className="container hero-content" style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>
           <span className="badge animate-fade" style={{ pointerEvents: 'auto', background: 'rgba(59, 130, 246, 0.2)', backdropFilter: 'blur(10px)' }}>Ультимативный No-Code Конфигуратор</span>
