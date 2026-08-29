@@ -328,29 +328,39 @@ export default function Home() {
           </div>
           
           <div className="faq-list">
-            <div className="faq-item">
+            <div className="faq-item" onClick={() => document.getElementById('faq1')?.classList.toggle('hidden')}>
               <span>Что такое CryptoCartel?</span>
               <ChevronRight size={20} className="text-secondary" />
             </div>
-            <div className="faq-item">
+            <div id="faq1" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>CryptoCartel — это инновационная no-code платформа для автоматизации крипто-торговых стратегий.</div>
+            
+            <div className="faq-item" onClick={() => document.getElementById('faq2')?.classList.toggle('hidden')}>
               <span>Нужно ли уметь программировать?</span>
               <ChevronRight size={20} className="text-secondary" />
             </div>
-            <div className="faq-item">
+            <div id="faq2" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Нет, программировать не нужно. Интерфейс позволяет создавать ботов из готовых блоков.</div>
+            
+            <div className="faq-item" onClick={() => document.getElementById('faq3')?.classList.toggle('hidden')}>
               <span>Какие биржи поддерживаются?</span>
               <ChevronRight size={20} className="text-secondary" />
             </div>
-            <div className="faq-item">
+            <div id="faq3" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Мы поддерживаем Binance, Bybit и OKX. В будущем добавим другие.</div>
+            
+            <div className="faq-item" onClick={() => document.getElementById('faq4')?.classList.toggle('hidden')}>
               <span>Где хранятся мои средства?</span>
               <ChevronRight size={20} className="text-secondary" />
             </div>
-            <div className="faq-item">
+            <div id="faq4" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Средства остаются на вашей бирже. У нас нет прав на вывод.</div>
+            
+            <div className="faq-item" onClick={() => document.getElementById('faq5')?.classList.toggle('hidden')}>
               <span>Может ли бот вывести мои деньги?</span>
               <ChevronRight size={20} className="text-secondary" />
             </div>
-            <div className="faq-item" style={{ justifyContent: 'center', background: 'transparent', border: 'none', color: 'var(--primary-color)', cursor: 'pointer', marginTop: '1rem' }}>
+            <div id="faq5" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Нет. Вы должны отключить права на вывод (Withdrawals) при создании API ключей.</div>
+
+            <Link to="/docs" className="faq-item" style={{ justifyContent: 'center', background: 'transparent', border: 'none', color: 'var(--primary-color)', cursor: 'pointer', marginTop: '1rem', textDecoration: 'none' }}>
               Смотреть все 20+ вопросов...
-            </div>
+            </Link>
           </div>
         </div>
       </section>

@@ -563,7 +563,7 @@ function MainLayout() {
               </div>
               <div className="mobile-auth" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                 <Link to="/login" className="nav-link" style={{ fontSize: '0.85rem' }}>Войти</Link>
-                <Link to="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Создать Бота</Link>
+                <Link to="/signup" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>Регистрация</Link>
               </div>
             </>
           )}
