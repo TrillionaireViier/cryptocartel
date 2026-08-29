@@ -31,26 +31,24 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
         <Hero3D />
-        <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} perspective={1000} transitionSpeed={2000} trackOnWindow={true} style={{ display: 'flex', justifyContent: 'center', width: '100%', zIndex: 1, pointerEvents: 'none' }}>
-          <div className="container hero-content" style={{ position: 'relative', pointerEvents: 'none' }}>
-            <span className="badge animate-fade" style={{ pointerEvents: 'auto', background: 'rgba(59, 130, 246, 0.2)', backdropFilter: 'blur(10px)', transform: 'translateZ(50px)', display: 'inline-block' }}>Ультимативный No-Code Конфигуратор</span>
-            <h1 className="heading-xl text-gradient animate-fade delay-1" style={{ pointerEvents: 'auto', textShadow: '0 4px 20px rgba(0,0,0,0.5)', transform: 'translateZ(80px)' }}>
-              Автоматизируй<br/>Свою Прибыль
-            </h1>
-            <p className="text-secondary hero-desc animate-fade delay-2" style={{ pointerEvents: 'auto', textShadow: '0 2px 10px rgba(0,0,0,0.5)', transform: 'translateZ(30px)' }}>
-              Создавайте сложные Grid-стратегии, настраивайте технические индикаторы и управляйте рисками с помощью трейлинг-стопов. Мгновенное подключение к Binance, Bybit и OKX.
-            </p>
-            
-            <div className="animate-fade delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', pointerEvents: 'auto', transform: 'translateZ(60px)' }}>
-              <Link to="/features" className="btn btn-primary" style={{ padding: '1rem 2rem' }}>
-                Открыть Конфигуратор <ArrowRight size={18} />
-              </Link>
-              <a href="#pricing" className="btn btn-secondary" style={{ padding: '1rem 2rem', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)' }}>
-                Смотреть Тарифы
-              </a>
-            </div>
+        <div className="container hero-content" style={{ position: 'relative', zIndex: 1, pointerEvents: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span className="badge animate-fade" style={{ pointerEvents: 'auto', background: 'rgba(59, 130, 246, 0.2)', backdropFilter: 'blur(10px)', display: 'inline-block' }}>Ультимативный No-Code Конфигуратор</span>
+          <h1 className="heading-xl text-gradient animate-fade delay-1" style={{ pointerEvents: 'auto', textShadow: '0 4px 20px rgba(0,0,0,0.5)', textAlign: 'center' }}>
+            Автоматизируй<br/>Свою Прибыль
+          </h1>
+          <p className="text-secondary hero-desc animate-fade delay-2" style={{ pointerEvents: 'auto', textShadow: '0 2px 10px rgba(0,0,0,0.5)', textAlign: 'center' }}>
+            Создавайте сложные Grid-стратегии, настраивайте технические индикаторы и управляйте рисками с помощью трейлинг-стопов. Мгновенное подключение к Binance, Bybit и OKX.
+          </p>
+          
+          <div className="animate-fade delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', pointerEvents: 'auto' }}>
+            <Link to="/features" className="btn btn-primary" style={{ padding: '1rem 2rem' }}>
+              Открыть Конфигуратор <ArrowRight size={18} />
+            </Link>
+            <a href="#pricing" className="btn btn-secondary" style={{ padding: '1rem 2rem', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)' }}>
+              Смотреть Тарифы
+            </a>
           </div>
-        </Tilt>
+        </div>
       </section>
 
       {/* Tools Section */}
