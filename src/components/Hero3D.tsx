@@ -31,7 +31,7 @@ const AnimatedSphere = () => {
 
 export default function Hero3D() {
   return (
-    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.8 }}>
+    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <ambientLight intensity={0.2} />
         <directionalLight position={[10, 10, 5]} intensity={2} color="#ffffff" />
