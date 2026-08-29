@@ -276,7 +276,7 @@ export default function Home() {
                 <li><Check size={18} className="text-primary" /> Спотовая торговля</li>
                 <li><Check size={18} className="text-primary" /> Базовые индикаторы</li>
               </ul>
-              <button className="btn btn-secondary" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</button>
+              <Link to="/signup" className="btn btn-secondary" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</Link>
             </TiltCard>
             
             {/* Pro Tier */}
@@ -294,7 +294,7 @@ export default function Home() {
                 <li><Check size={18} className="text-primary" /> Трейлинг стопы</li>
                 <li><Check size={18} className="text-primary" /> Продвинутые индикаторы</li>
               </ul>
-              <button className="btn btn-accent" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</button>
+              <Link to="/signup" className="btn btn-accent" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</Link>
             </TiltCard>
             
             {/* Ultra Tier */}
@@ -309,7 +309,7 @@ export default function Home() {
                 <li><Check size={18} className="text-primary" /> Персональный менеджер</li>
                 <li><Check size={18} className="text-primary" /> Копитрейдинг</li>
               </ul>
-              <button className="btn btn-secondary" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</button>
+              <Link to="/signup" className="btn btn-secondary" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</Link>
             </TiltCard>
           </div>
         </div>
