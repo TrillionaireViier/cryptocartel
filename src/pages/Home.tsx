@@ -1,6 +1,15 @@
 import { ArrowRight, Activity, AudioWaveform, Zap, TrendingUp, BarChart2, Check, ChevronRight, Database, Server, Layers } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import Tilt from 'react-parallax-tilt';
+
+const TiltCard = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
+  <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} scale={1.02} transitionSpeed={2000} glareEnable={true} glareMaxOpacity={0.15} glareColor="white" glarePosition="all" style={{ height: '100%' }}>
+    <div className={`el-card ${className}`} style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      {children}
+    </div>
+  </Tilt>
+);
 
 export default function Home() {
   const { hash } = useLocation();
@@ -19,21 +28,30 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="hero">
-        <div className="container hero-content">
-          <span className="badge animate-fade">Ультимативный No-Code Конфигуратор</span>
-          <h1 className="heading-xl text-gradient animate-fade delay-1">
+      <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.6 }}>
+          <iframe 
+            src="https://my.spline.design/glassshapes-2f170fdd3c834a36f6cb3fbb450e1dc9/" 
+            frameBorder="0" 
+            width="100%" 
+            height="100%" 
+            style={{ pointerEvents: 'none' }}
+          ></iframe>
+        </div>
+        <div className="container hero-content" style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>
+          <span className="badge animate-fade" style={{ pointerEvents: 'auto', background: 'rgba(59, 130, 246, 0.2)', backdropFilter: 'blur(10px)' }}>Ультимативный No-Code Конфигуратор</span>
+          <h1 className="heading-xl text-gradient animate-fade delay-1" style={{ pointerEvents: 'auto', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
             Автоматизируй<br/>Свою Прибыль
           </h1>
-          <p className="text-secondary hero-desc animate-fade delay-2">
+          <p className="text-secondary hero-desc animate-fade delay-2" style={{ pointerEvents: 'auto', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
             Создавайте сложные Grid-стратегии, настраивайте технические индикаторы и управляйте рисками с помощью трейлинг-стопов. Мгновенное подключение к Binance, Bybit и OKX.
           </p>
           
-          <div className="animate-fade delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <div className="animate-fade delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', pointerEvents: 'auto' }}>
             <Link to="/features" className="btn btn-primary" style={{ padding: '1rem 2rem' }}>
               Открыть Конфигуратор <ArrowRight size={18} />
             </Link>
-            <a href="#pricing" className="btn btn-secondary" style={{ padding: '1rem 2rem' }}>
+            <a href="#pricing" className="btn btn-secondary" style={{ padding: '1rem 2rem', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)' }}>
               Смотреть Тарифы
             </a>
           </div>
@@ -51,27 +69,27 @@ export default function Home() {
           </div>
           
           <div className="grid-3">
-            <div className="el-card feature-box">
+            <TiltCard className="feature-box">
               <div className="icon-wrapper accent"><Activity size={24} /></div>
               <h3>Технические Фильтры</h3>
               <p className="text-secondary">
                 Подключайте индикаторы RSI, MACD и Bollinger Bands, чтобы ваш бот входил в сделку только при идеальных условиях.
               </p>
-            </div>
-            <div className="el-card feature-box">
+            </TiltCard>
+            <TiltCard className="feature-box">
               <div className="icon-wrapper accent"><TrendingUp size={24} /></div>
               <h3>Трейлинг Стопы</h3>
               <p className="text-secondary">
                 Максимизируйте прибыль во время сильных пампов с помощью Trailing Take Profit и защищайте капитал динамическим Trailing Stop Loss.
               </p>
-            </div>
-            <div className="el-card feature-box">
+            </TiltCard>
+            <TiltCard className="feature-box">
               <div className="icon-wrapper accent"><Layers size={24} /></div>
               <h3>Умные Сетки</h3>
               <p className="text-secondary">
                 Используйте логарифмический или арифметический шаг сетки в комбинации с множителями объема Мартингейла.
               </p>
-            </div>
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -87,48 +105,48 @@ export default function Home() {
           </div>
           
           <div className="grid-3">
-            <div className="el-card feature-box">
+            <TiltCard className="feature-box">
               <div className="icon-wrapper"><Zap size={20} /></div>
               <h3>ScalpBot Pro <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Скальпинг</span></h3>
               <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
                 Высокочастотный бот для краткосрочных сделок. Открывает до 200 позиций в сутки на минутных свечах BTC/ETH.
               </p>
-            </div>
-            <div className="el-card feature-box">
+            </TiltCard>
+            <TiltCard className="feature-box">
               <div className="icon-wrapper"><TrendingUp size={20} /></div>
               <h3>TrendRider <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Трендовый</span></h3>
               <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
                 Торгует по направлению тренда на 4H и дневных графиках. Оптимален для спокойного рынка с чётким направлением.
               </p>
-            </div>
-            <div className="el-card feature-box">
+            </TiltCard>
+            <TiltCard className="feature-box">
               <div className="icon-wrapper"><Layers size={20} /></div>
               <h3>GridMaster <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Сеточный</span></h3>
               <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
                 Сеточная стратегия в боковом рынке. Зарабатывает на волатильности без прогнозирования направления.
               </p>
-            </div>
-            <div className="el-card feature-box">
+            </TiltCard>
+            <TiltCard className="feature-box">
               <div className="icon-wrapper"><BarChart2 size={20} /></div>
               <h3>ArbitrageX <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Арбитраж</span></h3>
               <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
                 Межбиржевой арбитраж. Использует разницу цен между биржами для безрискового заработка.
               </p>
-            </div>
-            <div className="el-card feature-box">
+            </TiltCard>
+            <TiltCard className="feature-box">
               <div className="icon-wrapper"><AudioWaveform size={20} /></div>
               <h3>NewsTrader AI <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Новостной</span></h3>
               <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
                 ИИ-бот анализирует новости и твиты в реальном времени. Реагирует на события раньше рынка.
               </p>
-            </div>
-            <div className="el-card feature-box">
+            </TiltCard>
+            <TiltCard className="feature-box">
               <div className="icon-wrapper"><Activity size={20} /></div>
               <h3>DCA Bot <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Усреднение</span></h3>
               <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
                 Классическая стратегия усреднения (DCA). Идеален для долгосрочного накопления активов при падении.
               </p>
-            </div>
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -255,7 +273,7 @@ export default function Home() {
           
           <div className="grid-3">
             {/* Free Tier */}
-            <div className="el-card pricing-card">
+            <TiltCard className="pricing-card">
               <div className="pricing-header">
                 <h3 style={{ fontSize: '1.25rem' }}>Бесплатный</h3>
                 <div className="price">$0<span>/мес</span></div>
@@ -266,11 +284,11 @@ export default function Home() {
                 <li><Check size={18} className="text-primary" /> Базовые индикаторы</li>
               </ul>
               <button className="btn btn-secondary" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</button>
-            </div>
+            </TiltCard>
             
             {/* Pro Tier */}
-            <div className="el-card pricing-card popular">
-              <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', background: 'var(--primary-color)', color: 'white', padding: '0.25rem 1rem', fontSize: '0.8rem', fontWeight: 'bold', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px' }}>
+            <TiltCard className="pricing-card popular">
+              <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', background: 'var(--primary-color)', color: 'white', padding: '0.25rem 1rem', fontSize: '0.8rem', fontWeight: 'bold', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px', zIndex: 10 }}>
                 ПОПУЛЯРНЫЙ
               </div>
               <div className="pricing-header">
@@ -284,10 +302,10 @@ export default function Home() {
                 <li><Check size={18} className="text-primary" /> Продвинутые индикаторы</li>
               </ul>
               <button className="btn btn-accent" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</button>
-            </div>
+            </TiltCard>
             
             {/* Ultra Tier */}
-            <div className="el-card pricing-card">
+            <TiltCard className="pricing-card">
               <div className="pricing-header">
                 <h3 style={{ fontSize: '1.25rem' }}>Ультра</h3>
                 <div className="price">$99<span>/мес</span></div>
@@ -299,7 +317,7 @@ export default function Home() {
                 <li><Check size={18} className="text-primary" /> Копитрейдинг</li>
               </ul>
               <button className="btn btn-secondary" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</button>
-            </div>
+            </TiltCard>
           </div>
         </div>
       </section>

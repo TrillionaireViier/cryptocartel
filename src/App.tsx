@@ -62,20 +62,23 @@ function MainLayout() {
             font-weight: 700;
             line-height: 1.2;
             letter-spacing: -0.03em;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
           }
 
           .heading-xl {
-            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-size: clamp(2rem, 6vw, 4.5rem);
             margin-bottom: 1.5rem;
           }
 
           .heading-lg {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.5rem, 5vw, 3rem);
             margin-bottom: 1rem;
           }
           
           .heading-md {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(1.25rem, 4vw, 2rem);
             margin-bottom: 1rem;
           }
 
