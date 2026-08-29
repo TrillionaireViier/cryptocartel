@@ -28,9 +28,11 @@ export default function Home() {
 
   return (
     <>
+      {/* Global 3D Background */}
+      <Hero3D />
+
       {/* Hero Section */}
       <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
-        <Hero3D />
         <div className="container hero-content" style={{ position: 'relative', zIndex: 1, pointerEvents: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <span className="badge animate-fade" style={{ pointerEvents: 'auto', background: 'rgba(59, 130, 246, 0.2)', backdropFilter: 'blur(10px)', display: 'inline-block' }}>Ультимативный No-Code Конфигуратор</span>
           <h1 className="heading-xl text-gradient animate-fade delay-1" style={{ pointerEvents: 'auto', textShadow: '0 4px 20px rgba(0,0,0,0.5)', textAlign: 'center' }}>
