@@ -6,27 +6,32 @@ import * as THREE from 'three';
 const Logo3D = () => {
   const groupRef = useRef<THREE.Group>(null);
 
-  // Generate the main "A" shape
   const mainShape = useMemo(() => {
     const shape = new THREE.Shape();
     
-    // Outer boundary (Approximated rounded triangle)
+    // Outer boundary (Stylized 'A' main body)
+    // Start at top tip
     shape.moveTo(0, 3);
-    shape.quadraticCurveTo(0.5, 3, 2, -1.5);
-    shape.quadraticCurveTo(2.2, -2.5, 1.5, -2.5);
-    shape.lineTo(-2, -2.5);
-    shape.quadraticCurveTo(-2.8, -2.5, -2, -0.5);
+    // Down the right side (thick)
+    shape.bezierCurveTo(1.5, 0.5, 2.0, -1.0, 1.5, -1.0);
+    // Swoop inwards to form the top of the gap
+    shape.bezierCurveTo(0.8, -1.0, 0.5, -0.5, -0.5, -1.5);
+    // Down the left leg
+    shape.lineTo(-1.5, -2.5);
+    // Bottom left rounded corner
+    shape.bezierCurveTo(-2.5, -2.5, -2.8, -1.5, -2.0, -0.5);
+    // Up the left outer edge to the top
     shape.lineTo(-0.5, 2.5);
-    shape.quadraticCurveTo(0, 3, 0, 3);
+    shape.quadraticCurveTo(0, 3.2, 0, 3);
     
     // Inner cutout (Hole)
     const holePath = new THREE.Path();
-    holePath.moveTo(0.1, 1.5);
-    holePath.lineTo(-1.2, -1.5);
-    holePath.quadraticCurveTo(-1.4, -1.8, -0.8, -1.8);
-    holePath.lineTo(1.2, -1.8);
-    holePath.quadraticCurveTo(1.4, -1.8, 0.5, 1.5);
-    holePath.quadraticCurveTo(0.3, 2, 0.1, 1.5);
+    holePath.moveTo(-0.2, 1.5);
+    holePath.lineTo(-1.2, -0.5);
+    holePath.quadraticCurveTo(-1.5, -1.0, -0.5, -0.8);
+    holePath.lineTo(0.5, -0.5);
+    holePath.quadraticCurveTo(1.0, -0.4, 0.8, 0.2);
+    holePath.lineTo(-0.2, 1.5);
     shape.holes.push(holePath);
 
     return shape;
@@ -35,13 +40,16 @@ const Logo3D = () => {
   // Generate the side dot shape
   const dotShape = useMemo(() => {
     const shape = new THREE.Shape();
-    shape.moveTo(2.5, -0.5);
-    shape.quadraticCurveTo(2.3, -0.5, 2, -1.5);
-    shape.quadraticCurveTo(1.8, -2.5, 2.5, -2.5);
-    shape.lineTo(3.5, -2.5);
-    shape.quadraticCurveTo(4, -2.5, 3.5, -1.5);
-    shape.lineTo(3.2, -0.8);
-    shape.quadraticCurveTo(3, -0.5, 2.5, -0.5);
+    // Start top-left of the dot
+    shape.moveTo(1.8, -1.5);
+    // Curve top-right
+    shape.quadraticCurveTo(2.8, -1.2, 3.0, -2.0);
+    // Curve bottom-right
+    shape.quadraticCurveTo(3.2, -3.0, 2.2, -2.8);
+    // Curve bottom-left
+    shape.quadraticCurveTo(1.2, -2.6, 1.5, -1.8);
+    // Close
+    shape.quadraticCurveTo(1.6, -1.5, 1.8, -1.5);
     return shape;
   }, []);
 
