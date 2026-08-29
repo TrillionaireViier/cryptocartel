@@ -1,46 +1,61 @@
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float, Stars } from '@react-three/drei';
+import { OrbitControls, Float, Stars, Cylinder, Box } from '@react-three/drei';
 import * as THREE from 'three';
 
-const AnimatedSphere = () => {
-  const sphereRef = useRef<THREE.Mesh>(null);
-
-  useFrame(({ clock }) => {
-    if (sphereRef.current) {
-      sphereRef.current.rotation.x = clock.getElapsedTime() * 0.2;
-      sphereRef.current.rotation.y = clock.getElapsedTime() * 0.3;
-    }
-  });
-
+const Coin = ({ position, rotation, scale, color = "#fbbf24" }: any) => {
   return (
-    <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
-      <Sphere ref={sphereRef} args={[1, 100, 100]} scale={1.5}>
-        <MeshDistortMaterial 
-          color="#3b82f6" 
-          attach="material" 
-          distort={0.4} 
-          speed={2} 
-          roughness={0.2}
-          metalness={0.8}
-        />
-      </Sphere>
+    <Float speed={2} rotationIntensity={1} floatIntensity={2} position={position}>
+      <Cylinder args={[1, 1, 0.2, 32]} rotation={rotation} scale={scale}>
+        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
+      </Cylinder>
+    </Float>
+  );
+};
+
+const Candlestick = ({ position, scale, isBullish }: any) => {
+  const color = isBullish ? "#10b981" : "#ef4444";
+  return (
+    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1.5} position={position}>
+      <group scale={scale}>
+        {/* Body */}
+        <Box args={[0.4, 1.5, 0.4]}>
+          <meshStandardMaterial color={color} metalness={0.3} roughness={0.2} transparent opacity={0.9} />
+        </Box>
+        {/* Wick */}
+        <Box args={[0.05, 3, 0.05]}>
+          <meshStandardMaterial color={color} metalness={0.3} roughness={0.2} />
+        </Box>
+      </group>
     </Float>
   );
 };
 
 export default function Hero3D() {
   return (
-    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.8, pointerEvents: 'none' }}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <ambientLight intensity={0.2} />
-        <directionalLight position={[10, 10, 5]} intensity={2} color="#ffffff" />
-        <directionalLight position={[-10, -10, -5]} intensity={1} color="#10b981" />
+    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.9, pointerEvents: 'none' }}>
+      <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
+        <ambientLight intensity={0.4} />
+        <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
+        <directionalLight position={[-10, -10, -5]} intensity={1} color="#3b82f6" />
         
-        <AnimatedSphere />
+        {/* Central huge coin */}
+        <Coin position={[0, 0, -2]} rotation={[Math.PI / 2, 0.5, 0]} scale={2} color="#f59e0b" />
+        
+        {/* Floating coins */}
+        <Coin position={[-4, 2, -1]} rotation={[1, 1, 0]} scale={0.6} color="#fbbf24" />
+        <Coin position={[4, -2, -3]} rotation={[2, 0, 1]} scale={0.8} color="#fcd34d" />
+        <Coin position={[-2, -3, 1]} rotation={[0.5, 2, 1]} scale={0.5} color="#f59e0b" />
+        
+        {/* Floating candlesticks */}
+        <Candlestick position={[3, 1, 0]} scale={1} isBullish={true} />
+        <Candlestick position={[-3, -1, 1]} scale={0.8} isBullish={false} />
+        <Candlestick position={[5, 2, -2]} scale={1.2} isBullish={true} />
+        <Candlestick position={[-5, 0, -4]} scale={1.5} isBullish={false} />
+
         <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
         
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.8} />
+        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
       </Canvas>
     </div>
   );
