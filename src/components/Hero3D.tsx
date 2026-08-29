@@ -1,59 +1,48 @@
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Float, Stars, Cylinder, Box } from '@react-three/drei';
-
-const Coin = ({ position, rotation, scale, color = "#fbbf24" }: any) => {
-  return (
-    <Float speed={2} rotationIntensity={1} floatIntensity={2} position={position}>
-      <Cylinder args={[1, 1, 0.2, 32]} rotation={rotation} scale={scale}>
-        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
-      </Cylinder>
-    </Float>
-  );
-};
-
-const Candlestick = ({ position, scale, isBullish }: any) => {
-  const color = isBullish ? "#10b981" : "#ef4444";
-  return (
-    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1.5} position={position}>
-      <group scale={scale}>
-        {/* Body */}
-        <Box args={[0.4, 1.5, 0.4]}>
-          <meshStandardMaterial color={color} metalness={0.3} roughness={0.2} transparent opacity={0.9} />
-        </Box>
-        {/* Wick */}
-        <Box args={[0.05, 3, 0.05]}>
-          <meshStandardMaterial color={color} metalness={0.3} roughness={0.2} />
-        </Box>
-      </group>
-    </Float>
-  );
-};
+import { OrbitControls, Float, Stars, TorusKnot, Sphere, MeshTransmissionMaterial } from '@react-three/drei';
 
 export default function Hero3D() {
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.9, pointerEvents: 'none' }}>
-      <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
-        <directionalLight position={[-10, -10, -5]} intensity={1} color="#3b82f6" />
+      <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
+        <color attach="background" args={['#000000']} />
+        <ambientLight intensity={0.5} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={2} color="#3b82f6" />
+        <spotLight position={[-10, -10, -10]} angle={0.15} penumbra={1} intensity={2} color="#10b981" />
         
-        {/* Central huge coin */}
-        <Coin position={[0, 0, -2]} rotation={[Math.PI / 2, 0.5, 0]} scale={2} color="#f59e0b" />
-        
-        {/* Floating coins */}
-        <Coin position={[-4, 2, -1]} rotation={[1, 1, 0]} scale={0.6} color="#fbbf24" />
-        <Coin position={[4, -2, -3]} rotation={[2, 0, 1]} scale={0.8} color="#fcd34d" />
-        <Coin position={[-2, -3, 1]} rotation={[0.5, 2, 1]} scale={0.5} color="#f59e0b" />
-        
-        {/* Floating candlesticks */}
-        <Candlestick position={[3, 1, 0]} scale={1} isBullish={true} />
-        <Candlestick position={[-3, -1, 1]} scale={0.8} isBullish={false} />
-        <Candlestick position={[5, 2, -2]} scale={1.2} isBullish={true} />
-        <Candlestick position={[-5, 0, -4]} scale={1.5} isBullish={false} />
+        {/* Core stunning glass geometry */}
+        <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
+          <TorusKnot args={[1.5, 0.4, 256, 64]} position={[0, 0, -1]}>
+            <MeshTransmissionMaterial 
+              backside 
+              samples={4} 
+              thickness={2} 
+              chromaticAberration={0.05} 
+              anisotropy={0.1} 
+              distortion={0.5} 
+              distortionScale={0.5} 
+              temporalDistortion={0.1} 
+              color="#3b82f6" 
+            />
+          </TorusKnot>
+        </Float>
 
-        <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
+        {/* Glowing orbiting spheres */}
+        <Float speed={1.5} rotationIntensity={2} floatIntensity={3} position={[-4, 2, -2]}>
+          <Sphere args={[0.3, 32, 32]}>
+            <meshStandardMaterial color="#10b981" emissive="#10b981" emissiveIntensity={2} toneMapped={false} />
+          </Sphere>
+        </Float>
         
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+        <Float speed={2.5} rotationIntensity={2} floatIntensity={3} position={[4, -2, -1]}>
+          <Sphere args={[0.4, 32, 32]}>
+            <meshStandardMaterial color="#3b82f6" emissive="#3b82f6" emissiveIntensity={2} toneMapped={false} />
+          </Sphere>
+        </Float>
+
+        <Stars radius={100} depth={50} count={4000} factor={4} saturation={1} fade speed={1.5} />
+        
+        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.8} />
       </Canvas>
     </div>
   );
