@@ -1,7 +1,5 @@
-import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Stars, Cylinder, Box } from '@react-three/drei';
-import * as THREE from 'three';
 
 const Coin = ({ position, rotation, scale, color = "#fbbf24" }: any) => {
   return (
