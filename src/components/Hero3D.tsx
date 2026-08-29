@@ -37,19 +37,19 @@ export default function Hero3D() {
         <directionalLight position={[10, 10, 5]} intensity={1.5} color="#ffffff" />
         <directionalLight position={[-10, -10, -5]} intensity={1} color="#3b82f6" />
         
-        {/* Central huge coin */}
-        <Coin position={[0, 0, -2]} rotation={[Math.PI / 2, 0.5, 0]} scale={2} color="#f59e0b" />
+        {/* Central huge coin (moved up slightly so it isn't completely hidden by text) */}
+        <Coin position={[0, 3, -4]} rotation={[Math.PI / 2, 0.5, 0]} scale={2} color="#f59e0b" />
         
-        {/* Floating coins */}
-        <Coin position={[-4, 2, -1]} rotation={[1, 1, 0]} scale={0.6} color="#fbbf24" />
-        <Coin position={[4, -2, -3]} rotation={[2, 0, 1]} scale={0.8} color="#fcd34d" />
-        <Coin position={[-2, -3, 1]} rotation={[0.5, 2, 1]} scale={0.5} color="#f59e0b" />
+        {/* Floating coins - Tighter X coordinates, varied Y coordinates for portrait aspect ratio */}
+        <Coin position={[-1.5, 2.5, -1]} rotation={[1, 1, 0]} scale={0.5} color="#fbbf24" />
+        <Coin position={[1.5, -3.5, -2]} rotation={[2, 0, 1]} scale={0.7} color="#fcd34d" />
+        <Coin position={[-1.2, -2.5, 1]} rotation={[0.5, 2, 1]} scale={0.4} color="#f59e0b" />
         
-        {/* Floating candlesticks */}
-        <Candlestick position={[3, 1, 0]} scale={1} isBullish={true} />
-        <Candlestick position={[-3, -1, 1]} scale={0.8} isBullish={false} />
-        <Candlestick position={[5, 2, -2]} scale={1.2} isBullish={true} />
-        <Candlestick position={[-5, 0, -4]} scale={1.5} isBullish={false} />
+        {/* Floating candlesticks - Tighter X coordinates */}
+        <Candlestick position={[1.8, 1.5, 0]} scale={0.8} isBullish={true} />
+        <Candlestick position={[-1.8, -1, 1]} scale={0.7} isBullish={false} />
+        <Candlestick position={[1.2, -1.5, -2]} scale={1.1} isBullish={true} />
+        <Candlestick position={[-2, 1, -3]} scale={1.3} isBullish={false} />
 
         <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
         
