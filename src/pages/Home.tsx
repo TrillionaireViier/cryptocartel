@@ -72,38 +72,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 3D Alvara Capital Coin Showcase */}
+          {/* 3D Alvara Capital Coin Showcase - Seamless 3D Canvas */}
           <div
             style={{
               width: '100%',
-              height: 'clamp(300px, 45vh, 440px)',
+              height: 'clamp(280px, 45vh, 440px)',
               margin: '0 auto',
-              borderRadius: 'var(--radius-xxl)',
-              background: 'rgba(255, 255, 255, 0.45)',
-              backdropFilter: 'blur(16px)',
-              border: '1px solid var(--color-border-subtle)',
-              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.05)',
               overflow: 'hidden',
               position: 'relative'
             }}
           >
-            <div
-              style={{
-                position: 'absolute',
-                top: '16px',
-                left: '20px',
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.75rem',
-                color: 'var(--color-ink-muted)',
-                letterSpacing: '0.08em',
-                pointerEvents: 'none',
-                zIndex: 2,
-                textTransform: 'uppercase',
-                fontWeight: 500
-              }}
-            >
-              3D Alvara Capital Coin • Interactive Token
-            </div>
             <Hero3DCanvas />
           </div>
         </div>

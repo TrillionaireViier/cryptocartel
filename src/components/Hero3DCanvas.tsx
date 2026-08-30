@@ -20,7 +20,7 @@ function AlvaraCoinMesh() {
 
   return (
     <Float speed={1.8} rotationIntensity={0.6} floatIntensity={1.0}>
-      <group ref={coinRef} rotation={[0.2, 0, 0]}>
+      <group ref={coinRef} rotation={[Math.PI / 2 - 0.2, 0.3, 0]}>
         {/* Main Coin Body */}
         <mesh>
           <cylinderGeometry args={[2.0, 2.0, 0.22, 64]} />
@@ -44,16 +44,6 @@ function AlvaraCoinMesh() {
             map={texture}
             metalness={0.8}
             roughness={0.2}
-          />
-        </mesh>
-
-        {/* Outer Metallic Bezel Ring */}
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[2.01, 0.04, 16, 64]} />
-          <meshStandardMaterial
-            color="#d4af37"
-            metalness={0.98}
-            roughness={0.1}
           />
         </mesh>
       </group>
