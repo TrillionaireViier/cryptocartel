@@ -20,6 +20,18 @@ export default function Home() {
         overflow: 'hidden',
         textAlign: 'center'
       }}>
+        {/* Soft pastel orbs for atmosphere */}
+        <div style={{ 
+          position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', 
+          width: '800px', height: '400px', background: 'radial-gradient(ellipse at center, rgba(167, 243, 208, 0.4) 0%, rgba(255,255,255,0) 70%)', 
+          zIndex: 0, pointerEvents: 'none'
+        }} />
+        <div style={{ 
+          position: 'absolute', top: '20%', left: '30%', 
+          width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(199, 210, 254, 0.4) 0%, rgba(255,255,255,0) 70%)', 
+          zIndex: 0, pointerEvents: 'none'
+        }} />
+
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '900px', margin: '0 auto', padding: '0 24px' }}>
           <Badge style={{ marginBottom: '24px' }}>AI TRADING ECOSYSTEM</Badge>
           
@@ -47,7 +59,7 @@ export default function Home() {
           </p>
           
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap' }}>
-            <Button variant="primary" onClick={() => window.open('https://t.me/alvaratradebot', '_blank')}>Запустить Alvara Trade в Telegram</Button>
+            <Button variant="primary" onClick={() => window.location.href='#'}>Запустить Alvara Trade в Telegram</Button>
             <Button variant="outline" onClick={() => window.location.href='#features'}>Узнать больше</Button>
           </div>
 
@@ -60,16 +72,38 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 3D Alvara Capital Coin Showcase - Pure 3D Canvas */}
+          {/* 3D Alvara Capital Coin Showcase */}
           <div
             style={{
               width: '100%',
-              height: 'clamp(280px, 45vh, 440px)',
+              height: 'clamp(300px, 45vh, 440px)',
               margin: '0 auto',
+              borderRadius: 'var(--radius-xxl)',
+              background: 'rgba(255, 255, 255, 0.45)',
+              backdropFilter: 'blur(16px)',
+              border: '1px solid var(--color-border-subtle)',
+              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.05)',
               overflow: 'hidden',
               position: 'relative'
             }}
           >
+            <div
+              style={{
+                position: 'absolute',
+                top: '16px',
+                left: '20px',
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.75rem',
+                color: 'var(--color-ink-muted)',
+                letterSpacing: '0.08em',
+                pointerEvents: 'none',
+                zIndex: 2,
+                textTransform: 'uppercase',
+                fontWeight: 500
+              }}
+            >
+              3D Alvara Capital Coin • Interactive Token
+            </div>
             <Hero3DCanvas />
           </div>
         </div>
@@ -79,14 +113,14 @@ export default function Home() {
         BLOCK 2: Proof Block (Statistics) 
       */}
       <section style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', padding: '0 24px' }}>
-        <div 
-          className="responsive-grid-4"
-          style={{ 
-            borderTop: '1px solid var(--color-border-subtle)',
-            borderBottom: '1px solid var(--color-border-subtle)',
-            padding: '48px 0'
-          }}
-        >
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(4, 1fr)', 
+          gap: '24px',
+          borderTop: '1px solid var(--color-border-subtle)',
+          borderBottom: '1px solid var(--color-border-subtle)',
+          padding: '48px 0'
+        }}>
           {[
             { value: '79.7%', label: 'Средний винрейт алгоритмов ИИ' },
             { value: '26+', label: 'Торговых стратегий в едином сигнале (Smart Money, ICT, Indicator Confluence)' },
@@ -126,7 +160,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="responsive-grid-2">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
           
           <GradientOrbCard 
             title="Мгновенная аналитика любого токена" 
@@ -171,7 +205,7 @@ export default function Home() {
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.125rem', color: 'var(--color-ink-muted)' }}>3 простых шага к умному трейдингу</p>
           </div>
 
-          <div className="responsive-grid-3">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
             {[
               {
                 step: 'Шаг 1',
@@ -295,7 +329,7 @@ export default function Home() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.125rem', color: 'rgba(255,255,255,0.7)', marginBottom: '40px', lineHeight: 1.6 }}>
             Присоединяйтесь к экосистеме Alvara прямо сейчас и получите 100 поинтов $ALVARA при первом входе.
           </p>
-          <Button variant="onDark" onClick={() => window.open('https://t.me/alvaratradebot', '_blank')}>
+          <Button variant="onDark" onClick={() => window.location.href='#'}>
             Открыть Alvara Trade в Telegram
           </Button>
         </div>
