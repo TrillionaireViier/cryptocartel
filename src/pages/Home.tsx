@@ -72,7 +72,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 3D Alvara Capital Coin Showcase - Seamless 3D Canvas */}
+          {/* 3D Alvara Capital Coin Showcase - Pure 3D Canvas with Atmospheric Orb Glow */}
           <div
             style={{
               width: '100%',
@@ -82,6 +82,21 @@ export default function Home() {
               position: 'relative'
             }}
           >
+            {/* Signature Atmospheric Soft Orb Glow behind Coin */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '380px',
+                height: '380px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(229, 193, 88, 0.25) 0%, rgba(167, 243, 208, 0.2) 40%, rgba(255, 255, 255, 0) 70%)',
+                pointerEvents: 'none',
+                zIndex: 0
+              }}
+            />
             <Hero3DCanvas />
           </div>
         </div>
