@@ -2,6 +2,7 @@ import { Button } from '../../design system 3/components/core/Button';
 import { Badge } from '../../design system 3/components/core/Badge';
 import { Card } from '../../design system 3/components/core/Card';
 import { GradientOrbCard } from '../../design system 3/components/brand/GradientOrbCard';
+import Hero3DCanvas from '../components/Hero3DCanvas';
 
 export default function Home() {
   return (
@@ -62,13 +63,48 @@ export default function Home() {
             <Button variant="outline" onClick={() => window.location.href='#features'}>Узнать больше</Button>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', marginBottom: '36px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.875rem', color: 'var(--color-ink-muted)' }}>
               <span style={{ color: 'var(--color-ink)' }}>✓</span> Без передачи средств — ключи API защищены стандартом AES-256
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.875rem', color: 'var(--color-ink-muted)' }}>
               <span style={{ color: 'var(--color-ink)' }}>✓</span> Поддержка Binance, Bybit, MEXC
             </div>
+          </div>
+
+          {/* 3D Alvara Capital Coin Showcase */}
+          <div
+            style={{
+              width: '100%',
+              height: 'clamp(300px, 45vh, 440px)',
+              margin: '0 auto',
+              borderRadius: 'var(--radius-xxl)',
+              background: 'rgba(255, 255, 255, 0.45)',
+              backdropFilter: 'blur(16px)',
+              border: '1px solid var(--color-border-subtle)',
+              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.05)',
+              overflow: 'hidden',
+              position: 'relative'
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: '16px',
+                left: '20px',
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.75rem',
+                color: 'var(--color-ink-muted)',
+                letterSpacing: '0.08em',
+                pointerEvents: 'none',
+                zIndex: 2,
+                textTransform: 'uppercase',
+                fontWeight: 500
+              }}
+            >
+              3D Alvara Capital Coin • Interactive Token
+            </div>
+            <Hero3DCanvas />
           </div>
         </div>
       </section>
