@@ -3,81 +3,67 @@ import { Float, Stars, Environment, ContactShadows } from '@react-three/drei';
 import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
 
-const Logo3D = () => {
+const PremiumModel = () => {
   const groupRef = useRef<THREE.Group>(null);
+  const knotRef = useRef<THREE.Mesh>(null);
+  const ringRef = useRef<THREE.Mesh>(null);
 
-  const mainShape = useMemo(() => {
-    const shape = new THREE.Shape();
-    
-    // Simple stylized 'A' outer boundary
-    shape.moveTo(0, 2);
-    shape.lineTo(2, -2);
-    shape.lineTo(0.5, -2);
-    shape.lineTo(0, -1);
-    shape.lineTo(-0.5, -2);
-    shape.lineTo(-2, -2);
-    shape.lineTo(0, 2);
-    
-    // Inner cutout (Hole)
-    const holePath = new THREE.Path();
-    holePath.moveTo(0, 1);
-    holePath.lineTo(-0.8, -0.5);
-    holePath.lineTo(0.8, -0.5);
-    holePath.lineTo(0, 1);
-    shape.holes.push(holePath);
+  useFrame((state) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.3) * 0.2;
+      groupRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.2) * 0.1;
+    }
+    if (knotRef.current) {
+      knotRef.current.rotation.x += 0.005;
+      knotRef.current.rotation.y += 0.01;
+    }
+    if (ringRef.current) {
+      ringRef.current.rotation.z -= 0.002;
+      ringRef.current.rotation.x -= 0.003;
+    }
+  });
 
-    return shape;
-  }, []);
-
-  // Generate the side dot shape
-  const dotShape = useMemo(() => {
-    const shape = new THREE.Shape();
-    shape.moveTo(2.5, -2);
-    shape.lineTo(3.5, -2);
-    shape.lineTo(3.5, -1);
-    shape.lineTo(2.5, -1);
-    shape.lineTo(2.5, -2);
-    return shape;
-  }, []);
-
-  const extrudeSettings = useMemo(() => ({
-    steps: 2,
-    depth: 0.5,
-    bevelEnabled: true,
-    bevelThickness: 0.15,
-    bevelSize: 0.15,
-    bevelOffset: 0,
-    bevelSegments: 5
-  }), []);
-
-  const glossyBlackMaterial = useMemo(() => new THREE.MeshPhysicalMaterial({
-    color: '#0a0a0a',
-    metalness: 0.9,
-    roughness: 0.1,
+  // Premium glass/crystal material
+  const glassMaterial = useMemo(() => new THREE.MeshPhysicalMaterial({
+    color: '#ffffff',
+    metalness: 0.1,
+    roughness: 0.05,
+    transmission: 0.95, // Glass effect
+    thickness: 2,
+    ior: 1.5,
     clearcoat: 1.0,
     clearcoatRoughness: 0.1,
     envMapIntensity: 2.0,
   }), []);
 
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.5) * 0.3;
-      groupRef.current.rotation.x = Math.sin(state.clock.getElapsedTime() * 0.3) * 0.1;
-    }
-  });
+  // Gold/Metallic accent material
+  const goldMaterial = useMemo(() => new THREE.MeshPhysicalMaterial({
+    color: '#fbbf24',
+    metalness: 1.0,
+    roughness: 0.2,
+    envMapIntensity: 1.5,
+  }), []);
 
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-      <group ref={groupRef} scale={0.8} position={[-0.5, 0, 0]}>
-        {/* Main A Loop */}
-        <mesh material={glossyBlackMaterial}>
-          <extrudeGeometry args={[mainShape, extrudeSettings]} />
+    <Float speed={2} rotationIntensity={0.5} floatIntensity={1.5}>
+      <group ref={groupRef} scale={1.2} position={[0, 0, 0]}>
+        
+        {/* Core Torus Knot */}
+        <mesh ref={knotRef} material={glassMaterial}>
+          <torusKnotGeometry args={[1.5, 0.4, 256, 64]} />
         </mesh>
         
-        {/* Side Dot */}
-        <mesh material={glossyBlackMaterial}>
-          <extrudeGeometry args={[dotShape, extrudeSettings]} />
+        {/* Outer Orbiting Ring */}
+        <mesh ref={ringRef} material={goldMaterial}>
+          <torusGeometry args={[2.8, 0.05, 16, 100]} />
         </mesh>
+        
+        {/* Inner glowing sphere */}
+        <mesh>
+          <sphereGeometry args={[0.8, 32, 32]} />
+          <meshBasicMaterial color="#3b82f6" transparent opacity={0.3} />
+        </mesh>
+
       </group>
     </Float>
   );
@@ -99,7 +85,7 @@ export default function Hero3D() {
         {/* Environment map provides the reflections for the clearcoat */}
         <Environment preset="city" />
 
-        <Logo3D />
+        <PremiumModel />
         
         <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
         <ContactShadows position={[0, -3.5, 0]} opacity={0.4} scale={10} blur={2} far={4} color="#000000" />
