@@ -20,7 +20,7 @@ function AlvaraCoinMesh() {
 
   return (
     <Float speed={1.8} rotationIntensity={0.6} floatIntensity={1.0}>
-      <group ref={coinRef} rotation={[0.2, 0, 0]}>
+      <group ref={coinRef} rotation={[Math.PI / 2 - 0.15, 0.3, 0]}>
         {/* Main Coin Body */}
         <mesh>
           <cylinderGeometry args={[2.0, 2.0, 0.22, 64]} />

@@ -20,18 +20,6 @@ export default function Home() {
         overflow: 'hidden',
         textAlign: 'center'
       }}>
-        {/* Soft pastel orbs for atmosphere */}
-        <div style={{ 
-          position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', 
-          width: '800px', height: '400px', background: 'radial-gradient(ellipse at center, rgba(167, 243, 208, 0.4) 0%, rgba(255,255,255,0) 70%)', 
-          zIndex: 0, pointerEvents: 'none'
-        }} />
-        <div style={{ 
-          position: 'absolute', top: '20%', left: '30%', 
-          width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(199, 210, 254, 0.4) 0%, rgba(255,255,255,0) 70%)', 
-          zIndex: 0, pointerEvents: 'none'
-        }} />
-
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '900px', margin: '0 auto', padding: '0 24px' }}>
           <Badge style={{ marginBottom: '24px' }}>AI TRADING ECOSYSTEM</Badge>
           
