@@ -72,38 +72,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 3D Alvara Capital Coin Showcase */}
+          {/* 3D Alvara Capital Coin Showcase - Pure 3D Canvas */}
           <div
             style={{
               width: '100%',
-              height: 'clamp(300px, 45vh, 440px)',
+              height: 'clamp(280px, 45vh, 440px)',
               margin: '0 auto',
-              borderRadius: 'var(--radius-xxl)',
-              background: 'rgba(255, 255, 255, 0.45)',
-              backdropFilter: 'blur(16px)',
-              border: '1px solid var(--color-border-subtle)',
-              boxShadow: '0 12px 40px rgba(0, 0, 0, 0.05)',
               overflow: 'hidden',
               position: 'relative'
             }}
           >
-            <div
-              style={{
-                position: 'absolute',
-                top: '16px',
-                left: '20px',
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.75rem',
-                color: 'var(--color-ink-muted)',
-                letterSpacing: '0.08em',
-                pointerEvents: 'none',
-                zIndex: 2,
-                textTransform: 'uppercase',
-                fontWeight: 500
-              }}
-            >
-              3D Alvara Capital Coin • Interactive Token
-            </div>
             <Hero3DCanvas />
           </div>
         </div>
@@ -113,14 +91,14 @@ export default function Home() {
         BLOCK 2: Proof Block (Statistics) 
       */}
       <section style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', padding: '0 24px' }}>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(4, 1fr)', 
-          gap: '24px',
-          borderTop: '1px solid var(--color-border-subtle)',
-          borderBottom: '1px solid var(--color-border-subtle)',
-          padding: '48px 0'
-        }}>
+        <div 
+          className="responsive-grid-4"
+          style={{ 
+            borderTop: '1px solid var(--color-border-subtle)',
+            borderBottom: '1px solid var(--color-border-subtle)',
+            padding: '48px 0'
+          }}
+        >
           {[
             { value: '79.7%', label: 'Средний винрейт алгоритмов ИИ' },
             { value: '26+', label: 'Торговых стратегий в едином сигнале (Smart Money, ICT, Indicator Confluence)' },
@@ -160,7 +138,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
+        <div className="responsive-grid-2">
           
           <GradientOrbCard 
             title="Мгновенная аналитика любого токена" 
@@ -205,7 +183,7 @@ export default function Home() {
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.125rem', color: 'var(--color-ink-muted)' }}>3 простых шага к умному трейдингу</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+          <div className="responsive-grid-3">
             {[
               {
                 step: 'Шаг 1',

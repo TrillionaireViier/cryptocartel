@@ -40,7 +40,7 @@ function MainLayout() {
             </span>
           </Link>
           
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
+          <div className="desktop-nav-links">
             <a href="#features" style={{ color: 'var(--color-ink)', textDecoration: 'none', fontSize: '0.875rem', fontFamily: 'var(--font-body)' }}>Возможности</a>
             <a href="#how-it-works" style={{ color: 'var(--color-ink)', textDecoration: 'none', fontSize: '0.875rem', fontFamily: 'var(--font-body)' }}>Как это работает</a>
             <a href="#faq" style={{ color: 'var(--color-ink)', textDecoration: 'none', fontSize: '0.875rem', fontFamily: 'var(--font-body)' }}>FAQ</a>
@@ -64,8 +64,8 @@ function MainLayout() {
         borderTop: '1px solid var(--color-border-subtle)' 
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '48px', marginBottom: '64px' }}>
-            <div style={{ gridColumn: 'span 2' }}>
+          <div className="responsive-footer-grid">
+            <div>
               <h3 style={{ 
                 fontFamily: 'var(--font-display)', 
                 fontSize: '1.5rem', 
@@ -101,6 +101,8 @@ function MainLayout() {
             borderTop: '1px solid var(--color-border-subtle)', 
             display: 'flex', 
             justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '12px',
             color: 'var(--color-ink-muted)',
             fontSize: '0.75rem',
             fontFamily: 'var(--font-body)'

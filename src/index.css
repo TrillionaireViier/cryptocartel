@@ -10,3 +10,82 @@ body {
 svg {
   display: block;
 }
+
+/* Responsive Layout Utilities */
+.responsive-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.responsive-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.responsive-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.responsive-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+
+.desktop-nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .responsive-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .responsive-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .responsive-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .responsive-grid-4 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .responsive-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .responsive-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .responsive-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .desktop-nav-links a {
+    display: none;
+  }
+
+  .desktop-nav-links {
+    gap: 12px;
+  }
+}

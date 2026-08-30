@@ -46,16 +46,6 @@ function AlvaraCoinMesh() {
             roughness={0.2}
           />
         </mesh>
-
-        {/* Outer Metallic Bezel Ring */}
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <torusGeometry args={[2.01, 0.04, 16, 64]} />
-          <meshStandardMaterial
-            color="#d4af37"
-            metalness={0.98}
-            roughness={0.1}
-          />
-        </mesh>
       </group>
     </Float>
   );
