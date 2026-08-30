@@ -2,6 +2,7 @@ import { Button } from '../../design system 3/components/core/Button';
 import { Badge } from '../../design system 3/components/core/Badge';
 import { Card } from '../../design system 3/components/core/Card';
 import { GradientOrbCard } from '../../design system 3/components/brand/GradientOrbCard';
+import Hero3DCanvas from '../components/Hero3DCanvas';
 
 export default function Home() {
   return (
@@ -14,8 +15,8 @@ export default function Home() {
       */}
       <section style={{ 
         position: 'relative', 
-        paddingTop: '120px', 
-        paddingBottom: '80px',
+        paddingTop: '80px', 
+        paddingBottom: '60px',
         overflow: 'hidden',
         textAlign: 'center'
       }}>
@@ -31,44 +32,78 @@ export default function Home() {
           zIndex: 0, pointerEvents: 'none'
         }} />
 
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
-          <Badge style={{ marginBottom: '32px' }}>AI TRADING ECOSYSTEM</Badge>
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '900px', margin: '0 auto', padding: '0 24px' }}>
+          <Badge style={{ marginBottom: '24px' }}>AI TRADING ECOSYSTEM</Badge>
           
           <h1 style={{ 
             fontFamily: 'var(--font-display)', 
-            fontSize: '4.5rem', 
+            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
             fontWeight: 300, 
             letterSpacing: '-0.02em', 
             color: 'var(--color-ink)',
             lineHeight: 1.1,
-            marginBottom: '24px'
+            marginBottom: '20px'
           }}>
             Торгуйте как 1% лучших трейдеров с помощью искусственного интеллекта Alvara
           </h1>
           
           <p style={{ 
             fontFamily: 'var(--font-body)', 
-            fontSize: '1.25rem', 
+            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', 
             color: 'var(--color-ink-muted)', 
             lineHeight: 1.6, 
             maxWidth: '650px', 
-            margin: '0 auto 40px' 
+            margin: '0 auto 28px' 
           }}>
             Экосистема умного трейдинга в Telegram: AI-аналитика 26 стратегий, автоматическое копирование сделок на биржи в 1 клик и фарминг токенов $ALVARA.
           </p>
           
-          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center', marginBottom: '32px' }}>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap' }}>
             <Button variant="primary" onClick={() => window.location.href='#'}>Запустить Alvara Trade в Telegram</Button>
             <Button variant="outline" onClick={() => window.location.href='#features'}>Узнать больше</Button>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap', marginBottom: '36px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.875rem', color: 'var(--color-ink-muted)' }}>
               <span style={{ color: 'var(--color-ink)' }}>✓</span> Без передачи средств — ключи API защищены стандартом AES-256
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.875rem', color: 'var(--color-ink-muted)' }}>
               <span style={{ color: 'var(--color-ink)' }}>✓</span> Поддержка Binance, Bybit, MEXC
             </div>
+          </div>
+
+          {/* Adaptive Mobile 3D Design Model Container */}
+          <div
+            style={{
+              width: '100%',
+              height: 'clamp(280px, 45vh, 420px)',
+              margin: '0 auto',
+              borderRadius: 'var(--radius-xxl)',
+              background: 'rgba(255, 255, 255, 0.4)',
+              backdropFilter: 'blur(16px)',
+              border: '1px solid var(--color-border-subtle)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.04)',
+              overflow: 'hidden',
+              position: 'relative'
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: '12px',
+                left: '20px',
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.75rem',
+                color: 'var(--color-ink-muted)',
+                letterSpacing: '0.05em',
+                pointerEvents: 'none',
+                zIndex: 2,
+                textTransform: 'uppercase'
+              }}
+            >
+              Interactive AI Core • 3D Model
+            </div>
+            <Hero3DCanvas />
           </div>
         </div>
       </section>
