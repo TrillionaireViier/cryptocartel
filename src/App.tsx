@@ -552,7 +552,7 @@ function MainLayout() {
       <nav className="navbar">
         <div className="container nav-content">
           <Link to="/" className="logo">
-            <Bot size={24} className="text-primary logo-spin" /> CryptoCartel
+            <Bot size={24} className="text-primary logo-spin" /> Alvaro Capital
           </Link>
           {!isDashboard && (
             <>
@@ -585,7 +585,7 @@ function MainLayout() {
           <div className="footer-grid">
             <div className="footer-col" style={{ gridColumn: 'span 2' }}>
               <Link to="/" className="logo" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>
-                <Bot size={24} className="text-primary logo-spin" /> CryptoCartel
+                <Bot size={24} className="text-primary logo-spin" /> Alvaro Capital
               </Link>
               <p className="text-secondary" style={{ maxWidth: '300px', fontSize: '0.95rem' }}>
                 Инновационная no-code платформа для создания и автоматизации крипто-торговых стратегий. Торгуйте умно, а не усердно.
@@ -624,7 +624,7 @@ function MainLayout() {
           </div>
           
           <div className="footer-bottom">
-            <div>© 2026 Экосистема CryptoCartel. Все права защищены.</div>
+            <div>© 2026 Экосистема Alvaro Capital. Все права защищены.</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--accent-color)', boxShadow: '0 0 10px var(--accent-color)' }}></div>
               Статус: Все системы работают

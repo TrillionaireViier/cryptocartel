@@ -329,10 +329,10 @@ export default function Home() {
           
           <div className="faq-list">
             <div className="faq-item" onClick={() => document.getElementById('faq1')?.classList.toggle('hidden')}>
-              <span>Что такое CryptoCartel?</span>
+              <span>Что такое Alvaro Capital?</span>
               <ChevronRight size={20} className="text-secondary" />
             </div>
-            <div id="faq1" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>CryptoCartel — это инновационная no-code платформа для автоматизации крипто-торговых стратегий.</div>
+            <div id="faq1" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Alvaro Capital — это инновационная no-code платформа для автоматизации крипто-торговых стратегий.</div>
             
             <div className="faq-item" onClick={() => document.getElementById('faq2')?.classList.toggle('hidden')}>
               <span>Нужно ли уметь программировать?</span>

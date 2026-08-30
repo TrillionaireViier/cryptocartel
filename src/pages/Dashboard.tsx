@@ -9,7 +9,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('cryptocartel_token');
+    const token = localStorage.getItem('alvarocapital_token');
     if (!token) {
       navigate('/login');
       return;
@@ -25,7 +25,7 @@ export default function Dashboard() {
         
         if (!res.ok) {
           if (res.status === 401 || res.status === 403) {
-            localStorage.removeItem('cryptocartel_token');
+            localStorage.removeItem('alvarocapital_token');
             navigate('/login');
             return;
           }
@@ -45,8 +45,8 @@ export default function Dashboard() {
   }, [navigate]);
 
   const handleLogout = () => {
-    localStorage.removeItem('cryptocartel_token');
-    localStorage.removeItem('cryptocartel_user');
+    localStorage.removeItem('alvarocapital_token');
+    localStorage.removeItem('alvarocapital_user');
     navigate('/login');
   };
 

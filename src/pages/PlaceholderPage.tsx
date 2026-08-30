@@ -27,7 +27,7 @@ const pageContent: Record<string, any> = {
   'updates': {
     title: 'Журнал Обновлений',
     icon: <Zap size={40} className="text-primary" />,
-    description: 'Последние релизы, новые функции и улучшения платформы CryptoCartel.',
+    description: 'Последние релизы, новые функции и улучшения платформы Alvaro Capital.',
     content: (
       <>
         <div style={{ borderLeft: '2px solid var(--border-strong)', paddingLeft: '1.5rem', marginBottom: '2rem' }}>
@@ -50,7 +50,7 @@ const pageContent: Record<string, any> = {
     content: (
       <>
         <h3>С чего начать?</h3>
-        <p>CryptoCartel разработан так, чтобы минимизировать порог входа. Однако, для использования сложных Мартингейл-сеток и трейлинг-стопов мы рекомендуем изучить базовые концепции.</p>
+        <p>Alvaro Capital разработан так, чтобы минимизировать порог входа. Однако, для использования сложных Мартингейл-сеток и трейлинг-стопов мы рекомендуем изучить базовые концепции.</p>
         <div className="grid-2" style={{ marginTop: '2rem' }}>
           <div className="el-card" style={{ padding: '1.5rem' }}>
             <h4 style={{ marginBottom: '0.5rem' }}>Подключение Биржи</h4>
@@ -91,7 +91,7 @@ const pageContent: Record<string, any> = {
     content: (
       <>
         <h3>1. Ограничение ответственности</h3>
-        <p>Криптовалютный трейдинг сопряжен с высокими рисками. CryptoCartel предоставляет программное обеспечение для автоматизации ваших стратегий, но не гарантирует прибыль.</p>
+        <p>Криптовалютный трейдинг сопряжен с высокими рисками. Alvaro Capital предоставляет программное обеспечение для автоматизации ваших стратегий, но не гарантирует прибыль.</p>
         <h3>2. Лицензия на использование</h3>
         <p>Пользователям предоставляется неисключительная лицензия на использование платформы в рамках выбранного тарифного плана.</p>
       </>
@@ -119,12 +119,12 @@ const pageContent: Record<string, any> = {
         <div className="grid-2" style={{ marginTop: '1rem' }}>
           <div className="el-card" style={{ padding: '2rem', textAlign: 'center' }}>
             <h4 style={{ marginBottom: '1rem' }}>Поддержка</h4>
-            <p>support@cryptocartel.io</p>
+            <p>support@alvarocapital.io</p>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Отвечаем в течение 15 минут</p>
           </div>
           <div className="el-card" style={{ padding: '2rem', textAlign: 'center' }}>
             <h4 style={{ marginBottom: '1rem' }}>Партнерство</h4>
-            <p>partners@cryptocartel.io</p>
+            <p>partners@alvarocapital.io</p>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Для бирж и инфлюенсеров</p>
           </div>
         </div>
@@ -132,7 +132,7 @@ const pageContent: Record<string, any> = {
     )
   },
   'blog': {
-    title: 'Блог CryptoCartel',
+    title: 'Блог Alvaro Capital',
     icon: <BookOpen size={40} className="text-primary" />,
     description: 'Новости рынка, аналитика и разборы торговых стратегий.',
     content: (
