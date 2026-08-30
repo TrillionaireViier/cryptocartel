@@ -7,7 +7,7 @@ import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.j
 function Alvara3DModel() {
   const groupRef = useRef<THREE.Group>(null);
 
-  const { scene } = useGLTF('/hero-model.glb', true, true, (loader) => {
+  const { scene } = useGLTF('/lilya_varshava.glb', true, true, (loader) => {
     loader.setMeshoptDecoder(MeshoptDecoder);
   });
 
@@ -28,7 +28,7 @@ function Alvara3DModel() {
   );
 }
 
-useGLTF.preload('/hero-model.glb', true, true, (loader) => {
+useGLTF.preload('/lilya_varshava.glb', true, true, (loader) => {
   loader.setMeshoptDecoder(MeshoptDecoder);
 });
 
