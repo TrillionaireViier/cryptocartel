@@ -46,22 +46,22 @@ const Logo3D = () => {
   // High bevel to make it look like inflated glossy plastic
   const extrudeSettings = useMemo(() => ({
     steps: 1,
-    depth: 0.4,
+    depth: 0.2,
     bevelEnabled: true,
-    bevelThickness: 0.3,
-    bevelSize: 0.3,
+    bevelThickness: 0.1,
+    bevelSize: 0.05,
     bevelOffset: 0,
-    bevelSegments: 16
+    bevelSegments: 8
   }), []);
 
   // Ultra-glossy black material (Piano Black)
   const glossyBlackMaterial = useMemo(() => new THREE.MeshPhysicalMaterial({
-    color: '#020202',
-    metalness: 0.2,
-    roughness: 0.05,
+    color: '#0a0a0a', // Slightly lighter black so it doesn't vanish
+    metalness: 0.8,
+    roughness: 0.1,
     clearcoat: 1.0,
-    clearcoatRoughness: 0.02,
-    envMapIntensity: 3.0,
+    clearcoatRoughness: 0.1,
+    envMapIntensity: 4.0, // Crank up reflections so it shines
   }), []);
 
   useFrame((state) => {
@@ -102,7 +102,7 @@ export default function Hero3D() {
         <spotLight position={[5, 10, 5]} intensity={3} angle={0.5} penumbra={1} color="#ffffff" />
         
         {/* Environment map provides the reflections for the clearcoat */}
-        <Environment preset="city" />
+        <Environment preset="studio" />
 
         <Logo3D />
         
