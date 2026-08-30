@@ -1,369 +1,304 @@
-import { ArrowRight, Activity, AudioWaveform, Zap, TrendingUp, BarChart2, Check, ChevronRight, Database, Server, Layers } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import Tilt from 'react-parallax-tilt';
-import Hero3D from '../components/Hero3D';
-
-const TiltCard = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
-  <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} scale={1.02} transitionSpeed={2000} glareEnable={true} glareMaxOpacity={0.15} glareColor="white" glarePosition="all" style={{ height: '100%' }}>
-    <div className={`el-card ${className}`} style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      {children}
-    </div>
-  </Tilt>
-);
+import { Button } from '../../design system 3/components/core/Button';
+import { Badge } from '../../design system 3/components/core/Badge';
+import { Card } from '../../design system 3/components/core/Card';
+import { GradientOrbCard } from '../../design system 3/components/brand/GradientOrbCard';
 
 export default function Home() {
-  const { hash } = useLocation();
-
-  useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [hash]);
-
   return (
-    <>
-      {/* Global 3D Background */}
-      <Hero3D />
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12xl)', paddingBottom: 'var(--space-12xl)' }}>
+      
+      {/* 
+        BLOCK 1: Hero Section
+        Off-white canvas, warm near-black ink.
+        Pastel orbs drifting in the background.
+      */}
+      <section style={{ 
+        position: 'relative', 
+        paddingTop: '120px', 
+        paddingBottom: '80px',
+        overflow: 'hidden',
+        textAlign: 'center'
+      }}>
+        {/* Soft pastel orbs for atmosphere */}
+        <div style={{ 
+          position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', 
+          width: '800px', height: '400px', background: 'radial-gradient(ellipse at center, rgba(167, 243, 208, 0.4) 0%, rgba(255,255,255,0) 70%)', 
+          zIndex: 0, pointerEvents: 'none'
+        }} />
+        <div style={{ 
+          position: 'absolute', top: '20%', left: '30%', 
+          width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(199, 210, 254, 0.4) 0%, rgba(255,255,255,0) 70%)', 
+          zIndex: 0, pointerEvents: 'none'
+        }} />
 
-      {/* Hero Section */}
-      <section className="hero" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div className="container hero-content" style={{ position: 'relative', zIndex: 1, pointerEvents: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <span className="badge animate-fade" style={{ pointerEvents: 'auto', background: 'rgba(59, 130, 246, 0.2)', backdropFilter: 'blur(10px)', display: 'inline-block' }}>Ультимативный No-Code Конфигуратор</span>
-          <h1 className="heading-xl text-gradient animate-fade delay-1" style={{ pointerEvents: 'auto', textShadow: '0 4px 20px rgba(0,0,0,0.5)', textAlign: 'center' }}>
-            Автоматизируй<br/>Свою Прибыль
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
+          <Badge style={{ marginBottom: '32px' }}>AI TRADING ECOSYSTEM</Badge>
+          
+          <h1 style={{ 
+            fontFamily: 'var(--font-display)', 
+            fontSize: '4.5rem', 
+            fontWeight: 300, 
+            letterSpacing: '-0.02em', 
+            color: 'var(--color-ink)',
+            lineHeight: 1.1,
+            marginBottom: '24px'
+          }}>
+            Торгуйте как 1% лучших трейдеров с помощью искусственного интеллекта Alvara
           </h1>
-          <p className="text-secondary hero-desc animate-fade delay-2" style={{ pointerEvents: 'auto', textShadow: '0 2px 10px rgba(0,0,0,0.5)', textAlign: 'center' }}>
-            Создавайте сложные Grid-стратегии, настраивайте технические индикаторы и управляйте рисками с помощью трейлинг-стопов. Мгновенное подключение к Binance, Bybit и OKX.
+          
+          <p style={{ 
+            fontFamily: 'var(--font-body)', 
+            fontSize: '1.25rem', 
+            color: 'var(--color-ink-muted)', 
+            lineHeight: 1.6, 
+            maxWidth: '650px', 
+            margin: '0 auto 40px' 
+          }}>
+            Экосистема умного трейдинга в Telegram: AI-аналитика 26 стратегий, автоматическое копирование сделок на биржи в 1 клик и фарминг токенов $ALVARA.
           </p>
           
-          <div className="animate-fade delay-3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', pointerEvents: 'auto' }}>
-            <Link to="/features" className="btn btn-primary" style={{ padding: '1rem 2rem' }}>
-              Открыть Конфигуратор <ArrowRight size={18} />
-            </Link>
-            <a href="#pricing" className="btn btn-secondary" style={{ padding: '1rem 2rem', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)' }}>
-              Смотреть Тарифы
-            </a>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center', marginBottom: '32px' }}>
+            <Button variant="primary" onClick={() => window.location.href='#'}>Запустить Alvara Trade в Telegram</Button>
+            <Button variant="outline" onClick={() => window.location.href='#features'}>Узнать больше</Button>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.875rem', color: 'var(--color-ink-muted)' }}>
+              <span style={{ color: 'var(--color-ink)' }}>✓</span> Без передачи средств — ключи API защищены стандартом AES-256
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.875rem', color: 'var(--color-ink-muted)' }}>
+              <span style={{ color: 'var(--color-ink)' }}>✓</span> Поддержка Binance, Bybit, MEXC
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Tools Section */}
-      <section id="features" className="section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="heading-lg">Профессиональные Инструменты</h2>
-            <p className="text-secondary" style={{ fontSize: '1.1rem' }}>
-              Всё необходимое для создания прибыльных автоматизированных систем без написания единой строчки кода.
-            </p>
-          </div>
+      {/* 
+        BLOCK 2: Proof Block (Statistics) 
+      */}
+      <section style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', padding: '0 24px' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(4, 1fr)', 
+          gap: '24px',
+          borderTop: '1px solid var(--color-border-subtle)',
+          borderBottom: '1px solid var(--color-border-subtle)',
+          padding: '48px 0'
+        }}>
+          {[
+            { value: '79.7%', label: 'Средний винрейт алгоритмов ИИ' },
+            { value: '26+', label: 'Торговых стратегий в едином сигнале (Smart Money, ICT, Indicator Confluence)' },
+            { value: '< 1 сек', label: 'Скорость исполнения сделки на вашей бирже через API' },
+            { value: '$0', label: 'Бесплатный старт и фарминг токенов для новых пользователей' }
+          ].map((stat, idx) => (
+            <div key={idx} style={{ padding: '0 16px' }}>
+              <div style={{ 
+                fontFamily: 'var(--font-display)', 
+                fontSize: '2.5rem', 
+                fontWeight: 300, 
+                color: 'var(--color-ink)', 
+                marginBottom: '12px' 
+              }}>
+                {stat.value}
+              </div>
+              <div style={{ 
+                fontFamily: 'var(--font-body)', 
+                fontSize: '0.875rem', 
+                color: 'var(--color-ink-muted)', 
+                lineHeight: 1.5 
+              }}>
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 
+        BLOCK 3: Features Grid 
+      */}
+      <section id="features" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 300, color: 'var(--color-ink)', marginBottom: '16px' }}>
+            Ключевые продукты экосистемы
+          </h2>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
           
-          <div className="grid-3">
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper accent"><Activity size={24} /></div>
-              <h3>Технические Фильтры</h3>
-              <p className="text-secondary">
-                Подключайте индикаторы RSI, MACD и Bollinger Bands, чтобы ваш бот входил в сделку только при идеальных условиях.
-              </p>
-            </TiltCard>
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper accent"><TrendingUp size={24} /></div>
-              <h3>Трейлинг Стопы</h3>
-              <p className="text-secondary">
-                Максимизируйте прибыль во время сильных пампов с помощью Trailing Take Profit и защищайте капитал динамическим Trailing Stop Loss.
-              </p>
-            </TiltCard>
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper accent"><Layers size={24} /></div>
-              <h3>Умные Сетки</h3>
-              <p className="text-secondary">
-                Используйте логарифмический или арифметический шаг сетки в комбинации с множителями объема Мартингейла.
-              </p>
-            </TiltCard>
+          <GradientOrbCard 
+            title="Мгновенная аналитика любого токена" 
+            eyebrow="AI-Генератор Сигналов"
+            orb="lavender"
+            body="ИИ анализирует Order Blocks, Fair Value Gap (FVG), осцилляторы RSI/MACD/ADX и выдает точную точку входа, 3 цели Take Profit и Stop Loss с расчетом риска."
+          />
+
+          <GradientOrbCard 
+            title="Торговля прямо из Telegram" 
+            eyebrow="Копитрейдинг в 1 клик"
+            orb="peach"
+            body="Привяжите API-ключи Binance, Bybit или MEXC. Нажмите кнопку «Копировать сделку» — бот сам выставит ордера на вашей бирже с учетом вашего депозита."
+          />
+
+          <GradientOrbCard 
+            title="Видеть то, что видят Киты" 
+            eyebrow="Ончейн и Макро-Аналитика"
+            orb="sky"
+            body="Отслеживайте действия крупного капитала, MVRV Z-Score, NUPL, открытый интерес (OI) и экономический календарь в понятном формате без сложной терминологии."
+          />
+
+          <GradientOrbCard 
+            title="Учитесь и зарабатывайте" 
+            eyebrow="F2E & Staking (Фарминг $ALVARA)"
+            orb="mint"
+            body="Проходите ежедневный AI Quiz, участвуйте в прогнозах рынка и держите USDT в стейкинге, чтобы ежедневно получать AirDrop токена $ALVARA."
+          />
+
+        </div>
+      </section>
+
+      {/* 
+        BLOCK 4: How it works 
+      */}
+      <section id="how-it-works" style={{ backgroundColor: 'var(--color-canvas-soft)', padding: '96px 24px', borderTop: '1px solid var(--color-border-subtle)', borderBottom: '1px solid var(--color-border-subtle)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 300, color: 'var(--color-ink)', marginBottom: '16px' }}>
+              Как это работает
+            </h2>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.125rem', color: 'var(--color-ink-muted)' }}>3 простых шага к умному трейдингу</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+            {[
+              {
+                step: 'Шаг 1',
+                title: 'Запустите бота в Telegram',
+                desc: 'Откройте Alvara Trade WebApp прямо в мессенджере без долгих регистраций и верификаций.'
+              },
+              {
+                step: 'Шаг 2',
+                title: 'Выберите монету и получите AI-сигнал',
+                desc: 'Алгоритм проверит 26 рыночных факторов и выдаст готовый сетап с оценкой вероятности успеха.'
+              },
+              {
+                step: 'Шаг 3',
+                title: 'Скопируйте сделку или включите Авто-трейдинг',
+                desc: 'Ордера мгновенно уйдут на вашу биржу. Управляйте рисками и следите за ростом депозита.'
+              }
+            ].map((s, idx) => (
+              <Card key={idx} style={{ padding: '32px' }}>
+                <Badge style={{ marginBottom: '24px' }}>{s.step}</Badge>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 300, color: 'var(--color-ink)', marginBottom: '16px' }}>
+                  {s.title}
+                </h3>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--color-ink-muted)', lineHeight: 1.6 }}>
+                  {s.desc}
+                </p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Bots Grid Section */}
-      <section className="section" style={{ background: 'var(--bg-card)' }}>
-        <div className="container">
-          <div className="section-header">
-            <h2 className="heading-lg">Готовые Торговые Боты</h2>
-            <p className="text-secondary" style={{ fontSize: '1.1rem' }}>
-              Выберите проверенную стратегию или создайте свою с нуля.
-            </p>
-          </div>
-          
-          <div className="grid-3">
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper"><Zap size={20} /></div>
-              <h3>ScalpBot Pro <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Скальпинг</span></h3>
-              <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
-                Высокочастотный бот для краткосрочных сделок. Открывает до 200 позиций в сутки на минутных свечах BTC/ETH.
-              </p>
-            </TiltCard>
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper"><TrendingUp size={20} /></div>
-              <h3>TrendRider <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Трендовый</span></h3>
-              <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
-                Торгует по направлению тренда на 4H и дневных графиках. Оптимален для спокойного рынка с чётким направлением.
-              </p>
-            </TiltCard>
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper"><Layers size={20} /></div>
-              <h3>GridMaster <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Сеточный</span></h3>
-              <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
-                Сеточная стратегия в боковом рынке. Зарабатывает на волатильности без прогнозирования направления.
-              </p>
-            </TiltCard>
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper"><BarChart2 size={20} /></div>
-              <h3>ArbitrageX <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Арбитраж</span></h3>
-              <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
-                Межбиржевой арбитраж. Использует разницу цен между биржами для безрискового заработка.
-              </p>
-            </TiltCard>
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper"><AudioWaveform size={20} /></div>
-              <h3>NewsTrader AI <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Новостной</span></h3>
-              <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
-                ИИ-бот анализирует новости и твиты в реальном времени. Реагирует на события раньше рынка.
-              </p>
-            </TiltCard>
-            <TiltCard className="feature-box">
-              <div className="icon-wrapper"><Activity size={20} /></div>
-              <h3>DCA Bot <span style={{fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem'}}>Усреднение</span></h3>
-              <p className="text-secondary" style={{ fontSize: '0.9rem' }}>
-                Классическая стратегия усреднения (DCA). Идеален для долгосрочного накопления активов при падении.
-              </p>
-            </TiltCard>
-          </div>
+      {/* 
+        BLOCK 5: Security 
+      */}
+      <section style={{ maxWidth: '800px', margin: '0 auto', width: '100%', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+          <Badge style={{ marginBottom: '24px' }}>SECURITY FIRST</Badge>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 300, color: 'var(--color-ink)', marginBottom: '16px' }}>
+            Безопасность уровня банковских систем
+          </h2>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <Card style={{ padding: '24px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', color: 'var(--color-ink-muted)' }}>1</div>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '1.125rem', color: 'var(--color-ink)', marginBottom: '8px' }}>Ваше имущество остается у вас</h4>
+              <p style={{ fontFamily: 'var(--font-body)', color: 'var(--color-ink-muted)', lineHeight: 1.6 }}>Мы никогда не принимаем депозиты пользователей на свои счета. Все средства хранятся на ваших биржах.</p>
+            </div>
+          </Card>
+
+          <Card style={{ padding: '24px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', color: 'var(--color-ink-muted)' }}>2</div>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '1.125rem', color: 'var(--color-ink)', marginBottom: '8px' }}>Шифрование AES-256</h4>
+              <p style={{ fontFamily: 'var(--font-body)', color: 'var(--color-ink-muted)', lineHeight: 1.6 }}>Ваши API-ключи хранятся в изолированном зашифрованном хранилище.</p>
+            </div>
+          </Card>
+
+          <Card style={{ padding: '24px', display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', color: 'var(--color-ink-muted)' }}>3</div>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '1.125rem', color: 'var(--color-ink)', marginBottom: '8px' }}>Запрет на вывод средств</h4>
+              <p style={{ fontFamily: 'var(--font-body)', color: 'var(--color-ink-muted)', lineHeight: 1.6 }}>При создании API-ключа вы отключаете право на вывод (Withdrawal). Бот может только открывать и закрывать сделки.</p>
+            </div>
+          </Card>
         </div>
       </section>
 
-      {/* How it Works Section */}
-      <section id="how-it-works" className="section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="heading-lg">Как Запустить Бота</h2>
-            <p className="text-secondary" style={{ fontSize: '1.1rem' }}>
-              От идеи до реализации за три простых шага.
-            </p>
-          </div>
-          
-          <div className="grid-3">
-            <div className="el-card step-card">
-              <div className="step-number">1</div>
-              <h3>Настройка</h3>
-              <p className="text-secondary" style={{ marginTop: '1rem' }}>
-                Используйте визуальный конструктор для настройки пары, структуры сетки и индикаторов.
+      {/* 
+        BLOCK 6: FAQ 
+      */}
+      <section id="faq" style={{ maxWidth: '800px', margin: '0 auto', width: '100%', padding: '0 24px', borderTop: '1px solid var(--color-border-subtle)', paddingTop: '96px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 300, color: 'var(--color-ink)', marginBottom: '48px', textAlign: 'center' }}>
+          Ответы на частые вопросы
+        </h2>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {[
+            {
+              q: 'Нужно ли мне платить за использование Alvara Trade?',
+              a: 'Базовый функционал, сигналы и участие в фарминге $ALVARA абсолютно бесплатны. PRO-возможности открываются за удержание токенов экосистемы.'
+            },
+            {
+              q: 'Какая минимальная сумма нужна для старта?',
+              a: 'Вы можете начать с любого депозита, разрешенного вашей биржей (обычно от $10 на Binance/Bybit).'
+            },
+            {
+              q: 'Чем Alvara отличается от обычных каналов с сигналами?',
+              a: 'Мы не даем субъективных прогнозов. Наш ИИ анализирует математическую конвергенцию 26 индикаторов и паттернов в реальном времени, а также позволяет исполнить сделку на бирже за 1 клик.'
+            }
+          ].map((faq, idx) => (
+            <Card key={idx} style={{ padding: '24px' }}>
+              <h4 style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '1.125rem', color: 'var(--color-ink)', marginBottom: '12px' }}>
+                {faq.q}
+              </h4>
+              <p style={{ fontFamily: 'var(--font-body)', color: 'var(--color-ink-muted)', lineHeight: 1.6 }}>
+                {faq.a}
               </p>
-            </div>
-            <div className="el-card step-card">
-              <div className="step-number">2</div>
-              <h3>Подключение</h3>
-              <p className="text-secondary" style={{ marginTop: '1rem' }}>
-                Подключите API ключи от вашей биржи. Мы нативно поддерживаем Binance, Bybit и OKX.
-              </p>
-            </div>
-            <div className="el-card step-card">
-              <div className="step-number">3</div>
-              <h3>Запуск</h3>
-              <p className="text-secondary" style={{ marginTop: '1rem' }}>
-                Запустите бота. Он будет автоматически торговать 24/7 строго по вашим правилам.
-              </p>
-            </div>
-          </div>
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* Architecture Section */}
-      <section className="section" style={{ background: 'var(--bg-card)' }}>
-        <div className="container">
-          <div className="section-header">
-            <h2 className="heading-lg">Создано для Масштабирования</h2>
-            <p className="text-secondary" style={{ fontSize: '1.1rem' }}>
-              Надежная бэкенд инфраструктура в сочетании с молниеносным фронтендом.
-            </p>
-          </div>
-          
-          <div className="grid-2">
-            <div className="arch-block">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <Server size={24} className="text-primary" />
-                <h3 className="heading-md" style={{ margin: 0 }}>Фронтенд</h3>
-              </div>
-              <div className="arch-list">
-                <div className="arch-item">
-                  <div className="arch-item-num">1</div>
-                  <div>
-                    <h4 style={{ marginBottom: '0.25rem' }}>Визуальный Конфигуратор</h4>
-                    <p className="text-secondary" style={{ fontSize: '0.9rem' }}>Интуитивно понятный React-интерфейс, который рассчитывает параметры сетки и визуализирует риски до запуска.</p>
-                  </div>
-                </div>
-                <div className="arch-item">
-                  <div className="arch-item-num">2</div>
-                  <div>
-                    <h4 style={{ marginBottom: '0.25rem' }}>Валидация в Реальном Времени</h4>
-                    <p className="text-secondary" style={{ fontSize: '0.9rem' }}>Мгновенная проверка на стороне клиента предотвращает ввод конфликтующих параметров и перерасход капитала.</p>
-                  </div>
-                </div>
-                <div className="arch-item">
-                  <div className="arch-item-num">3</div>
-                  <div>
-                    <h4 style={{ marginBottom: '0.25rem' }}>Управление Состоянием</h4>
-                    <p className="text-secondary" style={{ fontSize: '0.9rem' }}>Глобальный стейт-менеджмент надежно управляет состояниями сложных стратегий при редактировании.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="arch-block">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <Database size={24} className="text-primary" />
-                <h3 className="heading-md" style={{ margin: 0 }}>Бэкенд</h3>
-              </div>
-              <div className="arch-list">
-                <div className="arch-item">
-                  <div className="arch-item-num">1</div>
-                  <div>
-                    <h4 style={{ marginBottom: '0.25rem' }}>Мгновенное Исполнение</h4>
-                    <p className="text-secondary" style={{ fontSize: '0.9rem' }}>Node.js Express сервер обеспечивает передачу торговых сигналов по API бирж с миллисекундной задержкой.</p>
-                  </div>
-                </div>
-                <div className="arch-item">
-                  <div className="arch-item-num">2</div>
-                  <div>
-                    <h4 style={{ marginBottom: '0.25rem' }}>Безопасная База Данных</h4>
-                    <p className="text-secondary" style={{ fontSize: '0.9rem' }}>Архитектура на PostgreSQL/SQLite безопасно хранит ваши настройки, токены и зашифрованные данные.</p>
-                  </div>
-                </div>
-                <div className="arch-item">
-                  <div className="arch-item-num">3</div>
-                  <div>
-                    <h4 style={{ marginBottom: '0.25rem' }}>Бесперебойная Работа 24/7</h4>
-                    <p className="text-secondary" style={{ fontSize: '0.9rem' }}>Фоновые процессы постоянно отслеживают WebSocket-потоки для корректировки стопов и сеток, даже когда вы спите.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* 
+        BLOCK 7: Footer CTA 
+        Using a dark band for the final CTA to match the brand's pre-footer style.
+      */}
+      <section style={{ 
+        backgroundColor: 'var(--color-ink)', 
+        color: '#ffffff', 
+        padding: '96px 24px', 
+        textAlign: 'center',
+        margin: '96px 24px 0',
+        borderRadius: 'var(--radius-xl)'
+      }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 300, marginBottom: '24px' }}>
+            Начните торговать на основе данных, а не эмоций
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.125rem', color: 'rgba(255,255,255,0.7)', marginBottom: '40px', lineHeight: 1.6 }}>
+            Присоединяйтесь к экосистеме Alvara прямо сейчас и получите 100 поинтов $ALVARA при первом входе.
+          </p>
+          <Button variant="onDark" onClick={() => window.location.href='#'}>
+            Открыть Alvara Trade в Telegram
+          </Button>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="heading-lg">Тарифы</h2>
-            <p className="text-secondary" style={{ fontSize: '1.1rem' }}>
-              Выберите подходящий план для ваших торговых амбиций.
-            </p>
-          </div>
-          
-          <div className="grid-3">
-            {/* Free Tier */}
-            <TiltCard className="pricing-card">
-              <div className="pricing-header">
-                <h3 style={{ fontSize: '1.25rem' }}>Бесплатный</h3>
-                <div className="price">$0<span>/мес</span></div>
-              </div>
-              <ul className="feature-list">
-                <li><Check size={18} className="text-primary" /> 1 Активный бот</li>
-                <li><Check size={18} className="text-primary" /> Спотовая торговля</li>
-                <li><Check size={18} className="text-primary" /> Базовые индикаторы</li>
-              </ul>
-              <Link to="/signup" className="btn btn-secondary" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</Link>
-            </TiltCard>
-            
-            {/* Pro Tier */}
-            <TiltCard className="pricing-card popular">
-              <div style={{ position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)', background: 'var(--primary-color)', color: 'white', padding: '0.25rem 1rem', fontSize: '0.8rem', fontWeight: 'bold', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px', zIndex: 10 }}>
-                ПОПУЛЯРНЫЙ
-              </div>
-              <div className="pricing-header">
-                <h3 style={{ fontSize: '1.25rem' }}>Про</h3>
-                <div className="price">$29<span>/мес</span></div>
-              </div>
-              <ul className="feature-list">
-                <li><Check size={18} className="text-primary" /> До 10 активных ботов</li>
-                <li><Check size={18} className="text-primary" /> Спот и Фьючерсы</li>
-                <li><Check size={18} className="text-primary" /> Трейлинг стопы</li>
-                <li><Check size={18} className="text-primary" /> Продвинутые индикаторы</li>
-              </ul>
-              <Link to="/signup" className="btn btn-accent" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</Link>
-            </TiltCard>
-            
-            {/* Ultra Tier */}
-            <TiltCard className="pricing-card">
-              <div className="pricing-header">
-                <h3 style={{ fontSize: '1.25rem' }}>Ультра</h3>
-                <div className="price">$99<span>/мес</span></div>
-              </div>
-              <ul className="feature-list">
-                <li><Check size={18} className="text-primary" /> Неограниченно ботов</li>
-                <li><Check size={18} className="text-primary" /> API Доступ</li>
-                <li><Check size={18} className="text-primary" /> Персональный менеджер</li>
-                <li><Check size={18} className="text-primary" /> Копитрейдинг</li>
-              </ul>
-              <Link to="/signup" className="btn btn-secondary" style={{ width: '100%', padding: '1rem' }}>Войти / Регистрация</Link>
-            </TiltCard>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="section" style={{ background: 'var(--bg-card)' }}>
-        <div className="container">
-          <div className="section-header">
-            <h2 className="heading-lg">FAQ</h2>
-            <p className="text-secondary" style={{ fontSize: '1.1rem' }}>
-              Часто задаваемые вопросы
-            </p>
-          </div>
-          
-          <div className="faq-list">
-            <div className="faq-item" onClick={() => document.getElementById('faq1')?.classList.toggle('hidden')}>
-              <span>Что такое Alvaro Capital?</span>
-              <ChevronRight size={20} className="text-secondary" />
-            </div>
-            <div id="faq1" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Alvaro Capital — это инновационная no-code платформа для автоматизации крипто-торговых стратегий.</div>
-            
-            <div className="faq-item" onClick={() => document.getElementById('faq2')?.classList.toggle('hidden')}>
-              <span>Нужно ли уметь программировать?</span>
-              <ChevronRight size={20} className="text-secondary" />
-            </div>
-            <div id="faq2" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Нет, программировать не нужно. Интерфейс позволяет создавать ботов из готовых блоков.</div>
-            
-            <div className="faq-item" onClick={() => document.getElementById('faq3')?.classList.toggle('hidden')}>
-              <span>Какие биржи поддерживаются?</span>
-              <ChevronRight size={20} className="text-secondary" />
-            </div>
-            <div id="faq3" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Мы поддерживаем Binance, Bybit и OKX. В будущем добавим другие.</div>
-            
-            <div className="faq-item" onClick={() => document.getElementById('faq4')?.classList.toggle('hidden')}>
-              <span>Где хранятся мои средства?</span>
-              <ChevronRight size={20} className="text-secondary" />
-            </div>
-            <div id="faq4" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Средства остаются на вашей бирже. У нас нет прав на вывод.</div>
-            
-            <div className="faq-item" onClick={() => document.getElementById('faq5')?.classList.toggle('hidden')}>
-              <span>Может ли бот вывести мои деньги?</span>
-              <ChevronRight size={20} className="text-secondary" />
-            </div>
-            <div id="faq5" className="hidden" style={{ color: 'var(--text-secondary)', padding: '0 1.5rem 1.5rem', fontSize: '0.95rem', background: 'var(--bg-card)', marginTop: '-1.5rem', borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', border: '1px solid var(--border-light)', borderTop: 'none' }}>Нет. Вы должны отключить права на вывод (Withdrawals) при создании API ключей.</div>
-
-            <Link to="/docs" className="faq-item" style={{ justifyContent: 'center', background: 'transparent', border: 'none', color: 'var(--primary-color)', cursor: 'pointer', marginTop: '1rem', textDecoration: 'none' }}>
-              Смотреть все 20+ вопросов...
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }
