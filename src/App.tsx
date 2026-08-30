@@ -44,7 +44,7 @@ function MainLayout() {
             <a href="#features" style={{ color: 'var(--color-ink)', textDecoration: 'none', fontSize: '0.875rem', fontFamily: 'var(--font-body)' }}>Возможности</a>
             <a href="#how-it-works" style={{ color: 'var(--color-ink)', textDecoration: 'none', fontSize: '0.875rem', fontFamily: 'var(--font-body)' }}>Как это работает</a>
             <a href="#faq" style={{ color: 'var(--color-ink)', textDecoration: 'none', fontSize: '0.875rem', fontFamily: 'var(--font-body)' }}>FAQ</a>
-            <Button variant="primary" onClick={() => window.location.href='#'}>Открыть в Telegram</Button>
+            <Button variant="primary" onClick={() => window.open('https://t.me/alvaratradebot', '_blank')}>Открыть в Telegram</Button>
           </div>
 
         </div>

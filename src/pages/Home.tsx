@@ -59,7 +59,7 @@ export default function Home() {
           </p>
           
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap' }}>
-            <Button variant="primary" onClick={() => window.location.href='#'}>Запустить Alvara Trade в Telegram</Button>
+            <Button variant="primary" onClick={() => window.open('https://t.me/alvaratradebot', '_blank')}>Запустить Alvara Trade в Telegram</Button>
             <Button variant="outline" onClick={() => window.location.href='#features'}>Узнать больше</Button>
           </div>
 
@@ -307,7 +307,7 @@ export default function Home() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.125rem', color: 'rgba(255,255,255,0.7)', marginBottom: '40px', lineHeight: 1.6 }}>
             Присоединяйтесь к экосистеме Alvara прямо сейчас и получите 100 поинтов $ALVARA при первом входе.
           </p>
-          <Button variant="onDark" onClick={() => window.location.href='#'}>
+          <Button variant="onDark" onClick={() => window.open('https://t.me/alvaratradebot', '_blank')}>
             Открыть Alvara Trade в Telegram
           </Button>
         </div>
