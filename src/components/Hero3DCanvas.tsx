@@ -13,11 +13,15 @@ function AlvaraCoinModel() {
     '/media__edge.jpg'
   ]);
 
-  // Чтобы не было "тарелки" - убираем белые края с текстур
-  front.repeat.set(1.05, 1.05);
-  front.offset.set(-0.025, -0.025);
-  back.repeat.set(1.05, 1.05);
-  back.offset.set(-0.025, -0.025);
+  // Убираем белые края с текстур (делаем "Зум" картинки)
+  // Чтобы увеличить картинку, нужно сделать repeat МЕНЬШЕ 1.
+  const zoom = 0.92; // Увеличиваем на 8%, чтобы срезать белые края и тень
+  const offset = (1 - zoom) / 2;
+
+  front.repeat.set(zoom, zoom);
+  front.offset.set(offset, offset);
+  back.repeat.set(zoom, zoom);
+  back.offset.set(offset, offset);
 
   useFrame((_, delta) => {
     if (groupRef.current) {
