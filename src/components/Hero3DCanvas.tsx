@@ -32,7 +32,7 @@ function AlvaraCoinModel() {
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
-      <group ref={groupRef}>
+      <group ref={groupRef} position={[-0.8, 0, 0]}>
         <Center>
           <mesh rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
             <cylinderGeometry args={[2.5, 2.5, 0.15, 64]} />
