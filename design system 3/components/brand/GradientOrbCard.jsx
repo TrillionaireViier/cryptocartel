@@ -45,14 +45,14 @@ export function GradientOrbCard({
       <div aria-hidden style={{
         position: 'absolute', top: '-30%', left: '50%', transform: 'translateX(-50%)',
         width: '120%', height: '110%', pointerEvents: 'none',
-        background: `radial-gradient(40% 50% at 50% 38%, ${c1} 0%, rgba(255,255,255,0) 70%)`,
+        background: `radial-gradient(40% 50% at 50% 38%, ${c1} 0%, transparent 70%)`,
         opacity: 0.85,
       }} />
       {c2 && (
         <div aria-hidden style={{
           position: 'absolute', top: '-10%', left: '12%',
           width: '70%', height: '80%', pointerEvents: 'none',
-          background: `radial-gradient(45% 50% at 50% 50%, ${c2} 0%, rgba(255,255,255,0) 72%)`,
+          background: `radial-gradient(45% 50% at 50% 50%, ${c2} 0%, transparent 72%)`,
           opacity: 0.6,
         }} />
       )}
