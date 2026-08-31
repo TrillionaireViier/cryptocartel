@@ -106,10 +106,7 @@ export default function Home() {
         BLOCK 2: Proof Block (Statistics) 
       */}
       <section style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', padding: '0 24px' }}>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(4, 1fr)', 
-          gap: '24px',
+        <div className="responsive-grid-4" style={{ 
           borderTop: '1px solid var(--color-border-subtle)',
           borderBottom: '1px solid var(--color-border-subtle)',
           padding: '48px 0'
@@ -153,7 +150,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
+        <div className="responsive-grid-2">
           
           <GradientOrbCard 
             title="Мгновенная аналитика любого токена" 
@@ -198,7 +195,7 @@ export default function Home() {
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.125rem', color: 'var(--color-ink-muted)' }}>3 простых шага к умному трейдингу</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px' }}>
+          <div className="responsive-grid-3">
             {[
               {
                 step: 'Шаг 1',

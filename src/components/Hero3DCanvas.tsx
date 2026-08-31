@@ -1,15 +1,23 @@
 import { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, OrbitControls, useGLTF, Center, Environment, ContactShadows } from '@react-three/drei';
+import { Float, OrbitControls, useTexture, Center, Environment, ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
-import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
 
-function Alvara3DModel() {
+function AlvaraCoinModel() {
   const groupRef = useRef<THREE.Group>(null);
+  
+  // Загружаем наши текстуры
+  const [front, back, edge] = useTexture([
+    '/media__front.jpg',
+    '/media__back.jpg',
+    '/media__edge.jpg'
+  ]);
 
-  const { scene } = useGLTF('/lilya_varshava.glb', true, true, (loader) => {
-    loader.setMeshoptDecoder(MeshoptDecoder);
-  });
+  // Чтобы не было "тарелки" - убираем белые края с текстур
+  front.repeat.set(1.05, 1.05);
+  front.offset.set(-0.025, -0.025);
+  back.repeat.set(1.05, 1.05);
+  back.offset.set(-0.025, -0.025);
 
   useFrame((_, delta) => {
     if (groupRef.current) {
@@ -21,16 +29,21 @@ function Alvara3DModel() {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
       <group ref={groupRef}>
         <Center>
-          <primitive object={scene} scale={2.2} castShadow receiveShadow />
+          <mesh rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
+            <cylinderGeometry args={[2.5, 2.5, 0.15, 64]} />
+            
+            {/* Ребро монеты */}
+            <meshStandardMaterial attach="material-0" map={edge} metalness={0.1} roughness={0.8} color="#cccccc" />
+            {/* Лицевая сторона */}
+            <meshStandardMaterial attach="material-1" map={front} metalness={0} roughness={1} />
+            {/* Обратная сторона */}
+            <meshStandardMaterial attach="material-2" map={back} metalness={0} roughness={1} />
+          </mesh>
         </Center>
       </group>
     </Float>
   );
 }
-
-useGLTF.preload('/lilya_varshava.glb', true, true, (loader) => {
-  loader.setMeshoptDecoder(MeshoptDecoder);
-});
 
 export default function Hero3DCanvas() {
   return (
@@ -57,7 +70,7 @@ export default function Hero3DCanvas() {
         <Environment preset="city" />
 
         <Suspense fallback={null}>
-          <Alvara3DModel />
+          <AlvaraCoinModel />
         </Suspense>
 
         <ContactShadows position={[0, -2.0, 0]} opacity={0.4} scale={6} blur={2} far={4} color="#000000" />
