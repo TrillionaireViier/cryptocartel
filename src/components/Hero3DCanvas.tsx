@@ -1,7 +1,39 @@
 import { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, OrbitControls, useTexture, Center, Environment, ContactShadows } from '@react-three/drei';
+import { Float, OrbitControls, useTexture, useGLTF, Center, Environment, ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
+
+/* 
+// ЗАПАСНОЙ ВАРИАНТ (Старая 3D модель из GLB файла)
+function Alvara3DModel() {
+  const groupRef = useRef<THREE.Group>(null);
+
+  const { scene } = useGLTF('/hero_new.glb', true, true, (loader) => {
+    loader.setMeshoptDecoder(MeshoptDecoder);
+  });
+
+  useFrame((_, delta) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.6;
+    }
+  });
+
+  return (
+    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
+      <group ref={groupRef}>
+        <Center>
+          <primitive object={scene} scale={2.2} castShadow receiveShadow />
+        </Center>
+      </group>
+    </Float>
+  );
+}
+
+useGLTF.preload('/lilya_varshava.glb', true, true, (loader) => {
+  loader.setMeshoptDecoder(MeshoptDecoder);
+});
+*/
 
 function AlvaraCoinModel() {
   const groupRef = useRef<THREE.Group>(null);
