@@ -6,10 +6,10 @@ import * as THREE from 'three';
 function AlvaraCoinModel() {
   const groupRef = useRef<THREE.Group>(null);
   
-  // Загружаем картинки с вырезанным прозрачным фоном (PNG)
+  // Загружаем картинки с вырезанным прозрачным фоном (PNG) (v2 для сброса кэша)
   const [front, back, edge] = useTexture([
-    '/media__front.png',
-    '/media__back.png',
+    '/front_v2.png',
+    '/back_v2.png',
     '/media__edge.jpg'
   ]);
 
