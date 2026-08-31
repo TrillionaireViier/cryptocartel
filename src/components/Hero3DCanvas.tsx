@@ -53,7 +53,7 @@ function AlvaraCoinModel() {
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
-      <group ref={groupRef} position={[-0.8, 0, 0]}>
+      <group ref={groupRef} position={[0, 0, 0]}>
         <Center>
           <mesh rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
             <cylinderGeometry args={[2.5, 2.5, 0.12, 64]} />
@@ -103,8 +103,6 @@ export default function Hero3DCanvas() {
 
         <OrbitControls
           enableZoom={false}
-          autoRotate
-          autoRotateSpeed={0.8}
           maxPolarAngle={Math.PI / 1.4}
           minPolarAngle={Math.PI / 3}
         />
