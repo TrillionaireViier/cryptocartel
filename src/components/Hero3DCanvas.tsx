@@ -6,23 +6,12 @@ import * as THREE from 'three';
 function AlvaraCoinModel() {
   const groupRef = useRef<THREE.Group>(null);
   
-  // Загружаем наши текстуры
+  // Загружаем картинки с вырезанным прозрачным фоном (PNG)
   const [front, back, edge] = useTexture([
-    '/media__front.jpg',
-    '/media__back.jpg',
+    '/media__front.png',
+    '/media__back.png',
     '/media__edge.jpg'
   ]);
-
-  // Убираем белые края с текстур (делаем "Зум" картинки)
-  // Настраиваем идеальный зум: 0.78 обрезал текст, 0.92 оставлял белую рамку.
-  // 0.85 — это золотая середина (срезает 15% краев, оставляя текст на месте).
-  const zoom = 0.85; 
-  const offset = (1 - zoom) / 2;
-
-  front.repeat.set(zoom, zoom);
-  front.offset.set(offset, offset);
-  back.repeat.set(zoom, zoom);
-  back.offset.set(offset, offset);
 
   useFrame((_, delta) => {
     if (groupRef.current) {
@@ -35,14 +24,14 @@ function AlvaraCoinModel() {
       <group ref={groupRef} position={[-0.8, 0, 0]}>
         <Center>
           <mesh rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
-            <cylinderGeometry args={[2.5, 2.5, 0.15, 64]} />
+            <cylinderGeometry args={[2.5, 2.5, 0.12, 64]} />
             
-            {/* Ребро монеты */}
-            <meshStandardMaterial attach="material-0" map={edge} metalness={0.1} roughness={0.8} color="#cccccc" />
-            {/* Лицевая сторона */}
-            <meshStandardMaterial attach="material-1" map={front} metalness={0} roughness={1} />
-            {/* Обратная сторона */}
-            <meshStandardMaterial attach="material-2" map={back} metalness={0} roughness={1} />
+            {/* Ребро монеты (темный металл) */}
+            <meshStandardMaterial attach="material-0" map={edge} metalness={0.5} roughness={0.6} color="#222222" />
+            {/* Лицевая сторона (с прозрачностью по краям) */}
+            <meshStandardMaterial attach="material-1" map={front} metalness={0} roughness={1} transparent={true} />
+            {/* Обратная сторона (с прозрачностью по краям) */}
+            <meshStandardMaterial attach="material-2" map={back} metalness={0} roughness={1} transparent={true} />
           </mesh>
         </Center>
       </group>
